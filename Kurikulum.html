@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title data-translate="pageTitle">Kurikulum – ABA SUTOPO</title>
+  <link rel="icon" type="image/png" href="favicon.png.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-white text-gray-900">
+
+<!-- NAVBAR -->
+<header class="bg-red-600 text-white p-4 shadow-md relative">
+  <div class="container mx-auto flex justify-between items-center">
+
+    <!-- LOGO -->
+    <div class="flex items-center space-x-3">
+      <img src="images/logo-satgas.png.png" class="w-12 h-12 rounded-full" alt="Logo">
+      <a href="index.html" class="text-xl md:text-2xl font-bold" data-translate="judulNavbar">
+        ABA SUTOPO 東坡學院
+      </a>
+    </div>
+
+    <!-- RIGHT SIDE (LANG + MENU BUTTON) -->
+    <div class="flex items-center space-x-4">
+
+      <!-- LANGUAGE DROPDOWN -->
+      <div class="relative">
+        <button id="langBtn" 
+          class="px-2 py-1 rounded-lg shadow flex items-center gap-2"
+          style="background: #d62626; padding: 6px 10px; border-radius: 10px;">
+          <img id="langFlag" src="flags/Indonesia-Flag.png.png" class="w-6" alt="flag" style="border-radius:4px;">
+        </button>
+
+        <div id="langMenu"
+          class="hidden absolute right-0 mt-2 bg-gray-200 border rounded-xl shadow-lg p-2 w-28 z-50 text-center">
+          <img src="flags/Indonesia-Flag.png.png" data-lang="id" class="mx-auto my-1 cursor-pointer" alt="ID">
+          <img src="flags/Chinese-Flag.png.png" data-lang="cn" class="mx-auto my-1 cursor-pointer" alt="CN">
+          <img src="flags/United-Kingdom-Flag.png.png" data-lang="en" class="mx-auto my-1 cursor-pointer" alt="EN">
+        </div>
+      </div>
+
+      <!-- HAMBURGER MENU BUTTON -->
+      <button id="menuBtn" class="text-white text-3xl font-bold select-none">
+        ☰
+      </button>
+
+      <!-- MENU DROPDOWN -->
+      <div id="menuDropdown"
+        class="hidden absolute right-4 top-16 bg-white text-black rounded-xl shadow-lg w-40 p-4 space-y-3 z-50">
+
+        <a href="kurikulum.html" class="block hover:text-red-600" data-translate="menuKurikulum">Kurikulum</a>
+        <a href="kegiatan.html" class="block hover:text-red-600" data-translate="menuKegiatan">Kegiatan</a>
+        <a href="program.html" class="block hover:text-red-600" data-translate="menuProgram">Program</a>
+        <a href="about.us.html" class="block hover:text-red-600" data-translate="menuAbout">About.us</a>
+
+      </div>
+
+    </div>
+  </div>
+</header>
+
+<!-- JS UNTUK DROPDOWN NAV -->
+<script>
+  // Hamburger Menu
+  const menuBtn = document.getElementById("menuBtn");
+  const menuDropdown = document.getElementById("menuDropdown");
+
+  menuBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    menuDropdown.classList.toggle("hidden");
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!menuBtn.contains(e.target) && !menuDropdown.contains(e.target)) {
+      menuDropdown.classList.add("hidden");
+    }
+  });
+
+  // Language menu simple toggle (menu handled later in main script)
+  const langBtnTop = document.getElementById("langBtn");
+  const langMenuTop = document.getElementById("langMenu");
+  langBtnTop.addEventListener("click", (e) => { e.stopPropagation(); langMenuTop.classList.toggle("hidden"); });
+  document.addEventListener("click", () => { langMenuTop.classList.add("hidden"); });
+</script>
+
+<!-- SECTION KURIKULUM -->
+<section class="container mx-auto px-6 py-12 leading-relaxed">
+
+  <div class="w-full max-w-5xl mx-auto text-sm">
+
+    <!-- JUDUL UTAMA -->
+    <p class="font-bold text-xl mb-6" data-translate="programStudi">PROGRAM STUDI</p>
+
+    <!-- GRID 3 KOLOM (contoh ringkasan) -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+
+      <!-- KOLOM 1 -->
+      <div>
+        <p class="font-bold" data-translate="namaProgram">NAMA PROGRAM STUDI</p>
+        <p data-translate="prog_d3">D3 Bahasa Mandarin</p>
+        <p data-translate="prog_s1">S1 Bahasa Mandarin</p>
+      </div>
+
+      <!-- KOLOM 2 -->
+      <div>
+        <p class="font-bold" data-translate="jenjang">JENJANG</p>
+        <p data-translate="jenjang_d3">3 tahun</p>
+        <p data-translate="jenjang_s1">4 tahun</p>
+      </div>
+
+      <!-- KOLOM 3 -->
+      <div>
+        <p class="font-bold" data-translate="ijazah">IJAZAH</p>
+        <p data-translate="ijazah_d3">Amd.</p>
+        <p data-translate="ijazah_s1"><i data-translate="ijazah_s1_text">Bachelor of Art</i></p>
+      </div>
+
+    </div>
+
+    <!-- JUDUL KURIKULUM -->
+    <h2 class="text-center font-bold text-2xl mt-4 mb-6" data-translate="judulKurikulum">KURIKULUM PROGRAM STUDI BAHASA MANDARIN</h2>
+
+    <!-- DAFTAR SEMESTER (1 - 8) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+      <!-- SEMESTER 1 -->
+      <div>
+        <h3 class="font-bold mb-2" data-translate="s1_title">Semester I</h3>
+        <ol class="list-decimal ml-6 space-y-1">
+          <li data-translate="s1_1">Agama</li>
+          <li data-translate="s1_2">Pancasila</li>
+          <li data-translate="s1_3">Chinese Identity Communication</li>
+          <li data-translate="s1_4">Chinese Phonetics</li>
+          <li data-translate="s1_5">Oral Chinese</li>
+          <li data-translate="s1_6">Communication for Daily Need</li>
+          <li data-translate="s1_7">Simple Chinese Literacy</li>
+        </ol>
+
+        <h3 class="font-bold mt-6 mb-2" data-translate="s2_title">Semester II</h3>
+        <ol class="list-decimal ml-6 space-y-1">
+          <li data-translate="s2_1">Bahasa Indonesia</li>
+          <li data-translate="s2_2">Chinese Informative Communication</li>
+          <li data-translate="s2_3">Chinese Dialogue Communication</li>
+          <li data-translate="s2_4">Chinese Basic Literacy</li>
+          <li data-translate="s2_5">Chinese Society &amp; Daily Work</li>
+          <li data-translate="s2_6">Complex Chinese Literacy</li>
+        </ol>
+
+        <h3 class="font-bold mt-6 mb-2" data-translate="s3_title">Semester III</h3>
+        <ol class="list-decimal ml-6 space-y-1">
+          <li data-translate="s3_1">Chinese Narrative Communication</li>
+          <li data-translate="s3_2">Chinese Proficiency HSK 3-4</li>
+          <li data-translate="s3_3">Cross Cultural Study</li>
+          <li data-translate="s3_4">Oral Chinese 3</li>
+          <li data-translate="s3_5">Chinese Short Stories</li>
+          <li data-translate="s3_6">Introduction to Chinese Literature</li>
+        </ol>
+
+        <h3 class="font-bold mt-6 mb-2" data-translate="s4_title">Semester IV</h3>
+        <ol class="list-decimal ml-6 space-y-1">
+          <li data-translate="s4_1">Chinese Argumentative Communication</li>
+          <li data-translate="s4_2">Chinese Rhetoric</li>
+          <li data-translate="s4_3">Chinese Proficiency HSK 5</li>
+          <li data-translate="s4_4">Modern Chinese Grammar</li>
+          <li data-translate="s4_5">Chinese Phonology</li>
+          <li data-translate="s4_6">Chinese Teaching Method</li>
+          <li data-translate="s4_7">Practice of Chinese Teaching</li>
+        </ol>
+      </div>
+
+      <!-- SEMESTER 5 - 8 -->
+      <div>
+        <h3 class="font-bold mb-2" data-translate="s5_title">Semester V</h3>
+        <ol class="list-decimal ml-6 space-y-1">
+          <li data-translate="s5_1">Chinese Scientific Explanation</li>
+          <li data-translate="s5_2">Chinese Proficiency HSK 5-6</li>
+          <li data-translate="s5_3">Chinese Teaching Practice</li>
+          <li data-translate="s5_4">Chinese Contemporary Literature</li>
+          <li data-translate="s5_5">Modern Chinese Syntax</li>
+          <li data-translate="s5_6">Chinese Business Communication</li>
+          <li data-translate="s5_7">Chinese Culture Trading Communication</li>
+        </ol>
+
+        <h3 class="font-bold mt-6 mb-2" data-translate="s6_title">Semester VI</h3>
+        <ol class="list-decimal ml-6 space-y-1">
+          <li data-translate="s6_1">Chinese Cross Cultural Interpretation</li>
+          <li data-translate="s6_2">Chinese Interpretation</li>
+          <li data-translate="s6_3">Business Chinese Interpretation</li>
+          <li data-translate="s6_4">Chinese-English Interpretation</li>
+          <li data-translate="s6_5">Chinese-Japanese Interpretation</li>
+        </ol>
+
+        <h3 class="font-bold mt-6 mb-2" data-translate="s7_title">Semester VII</h3>
+        <ol class="list-decimal ml-6 space-y-1">
+          <li data-translate="s7_1">Chinese Cross Media</li>
+          <li data-translate="s7_2">Chinese Broadcasting</li>
+          <li data-translate="s7_3">Chinese Cross Media Design</li>
+          <li data-translate="s7_4">Chinese International Economy</li>
+          <li data-translate="s7_5">Chinese Tourism Culture</li>
+          <li data-translate="s7_6">Chinese Business Negotiation</li>
+        </ol>
+
+        <h3 class="font-bold mt-6 mb-2" data-translate="s8_title">Semester VIII</h3>
+        <ol class="list-decimal ml-6 space-y-1">
+          <li data-translate="s8_1">Chinese Proficiency HSK 6</li>
+          <li data-translate="s8_2">Internship</li>
+          <li data-translate="s8_3">Chinese Language Argument &amp; Evaluation</li>
+          <li data-translate="s8_4">Academic Thesis for the Degree Major</li>
+        </ol>
+      </div>
+
+    </div>
+
+    <!-- FOOTER STANDAR KOMPETENSI -->
+    <div class="text-center mt-12">
+      <h3 class="font-bold text-lg" data-translate="standar">STANDAR KOMPETENSI LULUSAN ABA SUTOPO</h3>
+      <p class="mt-1" data-translate="hsk">HSK Level 5 nilai minimum 210</p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-red-600 text-white p-6">
+  <div class="container mx-auto text-center px-4">
+    <p data-translate="footerText1">
+      ABA SUTOPO — 语言通天下，汉语连五洲。东坡学院致力培养专业人才，开拓美好未来!
+    </p>
+
+    <p>Email: sutopo.dongpoxueyuan@gmail.com | Whatsapp: +62 853-5358-4250</p>
+
+    <p>Komp. Perum Citra 5 Blok H/1, Pegadungan, Kalideres, Jakarta Barat</p>
+
+    <p class="opacity-40">________________________________________________________________________________________________</p>
+
+    <p data-translate="footerText2">
+      Copyright © Akademi Bahasa Asing Sutopo All rights reserved
+    </p>
+  </div>
+</footer>
+
+<!-- ===========================
+     AUTO TRANSLATE SCRIPT
+     =========================== -->
+<script>
+/* TRANSLATIONS (id / cn / en) for semua keys di atas.
+   Kamu memilih Opsi A (versi akademik formal). */
+const translations = {
+  id: {
+    pageTitle: "Kurikulum – ABA SUTOPO",
+    judulNavbar: "ABA SUTOPO 東坡學院",
+    menuKurikulum: "Kurikulum",
+    menuKegiatan: "Kegiatan",
+    menuProgram: "Program",
+    menuAbout: "About.us",
+    programStudi: "PROGRAM STUDI",
+    namaProgram: "NAMA PROGRAM STUDI",
+    prog_d3: "D3 Bahasa Mandarin",
+    prog_s1: "S1 Bahasa Mandarin",
+    jenjang: "JENJANG",
+    jenjang_d3: "3 tahun",
+    jenjang_s1: "4 tahun",
+    ijazah: "IJAZAH",
+    ijazah_d3: "Amd.",
+    ijazah_s1_text: "Bachelor of Art",
+    judulKurikulum: "KURIKULUM PROGRAM STUDI BAHASA MANDARIN",
+    s1_title: "Semester I",
+    s1_1: "Agama",
+    s1_2: "Pancasila",
+    s1_3: "Chinese Identity Communication",
+    s1_4: "Chinese Phonetics",
+    s1_5: "Oral Chinese",
+    s1_6: "Communication for Daily Need",
+    s1_7: "Simple Chinese Literacy",
+    s2_title: "Semester II",
+    s2_1: "Bahasa Indonesia",
+    s2_2: "Chinese Informative Communication",
+    s2_3: "Chinese Dialogue Communication",
+    s2_4: "Chinese Basic Literacy",
+    s2_5: "Chinese Society & Daily Work",
+    s2_6: "Complex Chinese Literacy",
+    s3_title: "Semester III",
+    s3_1: "Chinese Narrative Communication",
+    s3_2: "Chinese Proficiency HSK 3-4",
+    s3_3: "Cross Cultural Study",
+    s3_4: "Oral Chinese 3",
+    s3_5: "Chinese Short Stories",
+    s3_6: "Introduction to Chinese Literature",
+    s4_title: "Semester IV",
+    s4_1: "Chinese Argumentative Communication",
+    s4_2: "Chinese Rhetoric",
+    s4_3: "Chinese Proficiency HSK 5",
+    s4_4: "Modern Chinese Grammar",
+    s4_5: "Chinese Phonology",
+    s4_6: "Chinese Teaching Method",
+    s4_7: "Practice of Chinese Teaching",
+    s5_title: "Semester V",
+    s5_1: "Chinese Scientific Explanation",
+    s5_2: "Chinese Proficiency HSK 5-6",
+    s5_3: "Chinese Teaching Practice",
+    s5_4: "Chinese Contemporary Literature",
+    s5_5: "Modern Chinese Syntax",
+    s5_6: "Chinese Business Communication",
+    s5_7: "Chinese Culture Trading Communication",
+    s6_title: "Semester VI",
+    s6_1: "Chinese Cross Cultural Interpretation",
+    s6_2: "Chinese Interpretation",
+    s6_3: "Business Chinese Interpretation",
+    s6_4: "Chinese-English Interpretation",
+    s6_5: "Chinese-Japanese Interpretation",
+    s7_title: "Semester VII",
+    s7_1: "Chinese Cross Media",
+    s7_2: "Chinese Broadcasting",
+    s7_3: "Chinese Cross Media Design",
+    s7_4: "Chinese International Economy",
+    s7_5: "Chinese Tourism Culture",
+    s7_6: "Chinese Business Negotiation",
+    s8_title: "Semester VIII",
+    s8_1: "Chinese Proficiency HSK 6",
+    s8_2: "Internship",
+    s8_3: "Chinese Language Argument & Evaluation",
+    s8_4: "Academic Thesis for the Degree Major",
+    standar: "STANDAR KOMPETENSI LULUSAN ABA SUTOPO",
+    hsk: "HSK Level 5 nilai minimum 210",
+    footerText1: "ABA SUTOPO — 语言通天下，汉语连五洲。东坡学院致力培养专业人才，开拓美好未来!",
+    footerText2: "Copyright © Akademi Bahasa Asing Sutopo All rights reserved"
+  },
+
+  cn: {
+    pageTitle: "课程设置 – 东坡学院",
+    judulNavbar: "ABA SUTOPO 東坡學院",
+    menuKurikulum: "课程设置",
+    menuKegiatan: "活动",
+    menuProgram: "项目",
+    menuAbout: "关于我们",
+    programStudi: "专业项目",
+    namaProgram: "专业名称",
+    prog_d3: "大专 (D3) 汉语",
+    prog_s1: "学士 (S1) 汉语",
+    jenjang: "层次",
+    jenjang_d3: "3 年",
+    jenjang_s1: "4 年",
+    ijazah: "学位/文凭",
+    ijazah_d3: "大专文凭",
+    ijazah_s1_text: "文学学士",
+    judulKurikulum: "汉语专业课程设置",
+    s1_title: "第一学期",
+    s1_1: "宗教课程",
+    s1_2: "建国五原则课程",
+    s1_3: "汉语身份认同交流",
+    s1_4: "汉语语音学",
+    s1_5: "汉语口语",
+    s1_6: "日常实用交流",
+    s1_7: "基础汉语识字课程",
+    s2_title: "第二学期",
+    s2_1: "印尼语",
+    s2_2: "汉语信息类交流",
+    s2_3: "汉语对话交流",
+    s2_4: "汉语基础识字",
+    s2_5: "中国社会与日常工作",
+    s2_6: "汉语进阶识字",
+    s3_title: "第三学期",
+    s3_1: "汉语叙事交流",
+    s3_2: "汉语水平考试 HSK 3-4",
+    s3_3: "跨文化研究",
+    s3_4: "汉语口语 III",
+    s3_5: "中文短篇小说",
+    s3_6: "中国文学导论",
+    s4_title: "第四学期",
+    s4_1: "汉语议论性交流",
+    s4_2: "汉语修辞学",
+    s4_3: "汉语水平考试 HSK 5",
+    s4_4: "现代汉语语法",
+    s4_5: "汉语语音学(声学)",
+    s4_6: "汉语教学法",
+    s4_7: "汉语教学实践",
+    s5_title: "第五学期",
+    s5_1: "汉语科学说明文",
+    s5_2: "汉语水平 HSK 5-6",
+    s5_3: "汉语教学实践与带教",
+    s5_4: "中国当代文学",
+    s5_5: "现代汉语句法",
+    s5_6: "汉语商务交流",
+    s5_7: "中国文化贸易交流",
+    s6_title: "第六学期",
+    s6_1: "汉语跨文化口译",
+    s6_2: "汉语口译",
+    s6_3: "商务汉语口译",
+    s6_4: "中英同声传译/交替传译 (中文-英文)",
+    s6_5: "中日传译 (中文-日文)",
+    s7_title: "第七学期",
+    s7_1: "汉语跨媒体研究",
+    s7_2: "汉语广播与播音",
+    s7_3: "跨媒体设计与制作",
+    s7_4: "中国国际经济",
+    s7_5: "中国旅游文化",
+    s7_6: "汉语商务谈判",
+    s8_title: "第八学期",
+    s8_1: "汉语水平考试 HSK 6",
+    s8_2: "实习",
+    s8_3: "汉语论证与评价",
+    s8_4: "学位论文 (专业方向)"
+  },
+
+  en: {
+    pageTitle: "Curriculum – ABA SUTOPO",
+    judulNavbar: "ABA SUTOPO Academy",
+    menuKurikulum: "Curriculum",
+    menuKegiatan: "Activities",
+    menuProgram: "Programs",
+    menuAbout: "About Us",
+    programStudi: "Study Programs",
+    namaProgram: "PROGRAM NAME",
+    prog_d3: "Diploma (D3) Mandarin",
+    prog_s1: "Bachelor (S1) Mandarin",
+    jenjang: "LEVEL",
+    jenjang_d3: "3 years",
+    jenjang_s1: "4 years",
+    ijazah: "DEGREE",
+    ijazah_d3: "Diploma",
+    ijazah_s1_text: "Bachelor of Arts",
+    judulKurikulum: "CURRICULUM FOR MANDARIN STUDY PROGRAM",
+    s1_title: "Semester I",
+    s1_1: "Religion Studies",
+    s1_2: "Pancasila Civic Course",
+    s1_3: "Chinese Identity Communication",
+    s1_4: "Chinese Phonetics",
+    s1_5: "Oral Chinese",
+    s1_6: "Communication for Daily Needs",
+    s1_7: "Basic Chinese Literacy",
+    s2_title: "Semester II",
+    s2_1: "Indonesian Language",
+    s2_2: "Chinese Informative Communication",
+    s2_3: "Chinese Dialogue Communication",
+    s2_4: "Chinese Basic Literacy",
+    s2_5: "Chinese Society & Daily Work",
+    s2_6: "Complex Chinese Literacy",
+    s3_title: "Semester III",
+    s3_1: "Chinese Narrative Communication",
+    s3_2: "Chinese Proficiency HSK 3-4",
+    s3_3: "Cross-Cultural Studies",
+    s3_4: "Oral Chinese 3",
+    s3_5: "Chinese Short Stories",
+    s3_6: "Introduction to Chinese Literature",
+    s4_title: "Semester IV",
+    s4_1: "Chinese Argumentative Communication",
+    s4_2: "Chinese Rhetoric",
+    s4_3: "Chinese Proficiency HSK 5",
+    s4_4: "Modern Chinese Grammar",
+    s4_5: "Chinese Phonology",
+    s4_6: "Chinese Teaching Methodology",
+    s4_7: "Practice of Chinese Teaching",
+    s5_title: "Semester V",
+    s5_1: "Chinese Scientific Explanation",
+    s5_2: "Chinese Proficiency HSK 5-6",
+    s5_3: "Chinese Teaching Practicum",
+    s5_4: "Chinese Contemporary Literature",
+    s5_5: "Modern Chinese Syntax",
+    s5_6: "Business Chinese Communication",
+    s5_7: "Chinese Culture & Trade Communication",
+    s6_title: "Semester VI",
+    s6_1: "Chinese Cross-Cultural Interpretation",
+    s6_2: "Chinese Interpretation (Consecutive/Simultaneous)",
+    s6_3: "Business Chinese Interpretation",
+    s6_4: "Chinese–English Interpretation",
+    s6_5: "Chinese–Japanese Interpretation",
+    s7_title: "Semester VII",
+    s7_1: "Chinese Cross Media",
+    s7_2: "Chinese Broadcasting",
+    s7_3: "Cross Media Design",
+    s7_4: "Chinese International Economy",
+    s7_5: "Chinese Tourism & Culture",
+    s7_6: "Chinese Business Negotiation",
+    s8_title: "Semester VIII",
+    s8_1: "Chinese Proficiency HSK 6",
+    s8_2: "Internship",
+    s8_3: "Chinese Language Argumentation & Evaluation",
+    s8_4: "Thesis for Degree Major",
+    standar: "GRADUATE COMPETENCY STANDARDS",
+    hsk: "HSK Level 5 minimum score 210",
+    footerText1: "ABA SUTOPO — Spreading language to the world, bridging cultures globally!",
+    footerText2: "Copyright © ABA Sutopo All rights reserved"
+  }
+};
+
+/* Apply language to all [data-translate] elements */
+function applyLang(lang) {
+  document.querySelectorAll("[data-translate]").forEach(el => {
+    const key = el.getAttribute("data-translate");
+    if (!key) return;
+    const val = translations[lang] && translations[lang][key];
+    if (val !== undefined) {
+      // Preserve inner tags like <i> by setting textContent for plain text
+      if (el.tagName.toLowerCase() === 'i') el.textContent = val;
+      else el.textContent = val;
+    }
+  });
+  // Update flag image (handled by click events below)
+  // Update document title if translation exists
+  if (translations[lang] && translations[lang].pageTitle) {
+    document.title = translations[lang].pageTitle;
+  }
+}
+
+/* INIT default language = Indonesian */
+applyLang('id');
+
+/* Hook language menu (navbar flags) */
+document.querySelectorAll("#langMenu img").forEach(img => {
+  img.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const lang = img.dataset.lang;
+    // update top flag icon
+    document.getElementById("langFlag").src = img.src;
+    // close menu
+    document.getElementById("langMenu").classList.add("hidden");
+    // apply translations
+    applyLang(lang);
+  });
+});
+
+/* keep dropdowns from closing when clicking inside them */
+document.getElementById("langMenu").addEventListener("click", (e) => e.stopPropagation());
+document.getElementById("menuDropdown").addEventListener("click", (e) => e.stopPropagation());
+
+</script>
+
+<!-- FLOATING SOCIAL MEDIA ICONS -->
+<div class="fixed left-4 bottom-6 z-50 flex flex-col space-y-3">
+
+  <!-- SATGAS -->
+  <a href="https://satgas-abasutopo.github.io/satgas/"
+     class="bg-blue-500 p-3 rounded-full shadow-lg hover:scale-110 transition">
+    <img src="icons/satgas.png.png" class="w-8 h-8">
+  </a>
+
+  <!-- WHATSAPP -->
+  <a href="https://api.whatsapp.com/send/?phone=6285353584250"
+     target="_blank"
+     class="bg-green-500 p-3 rounded-full shadow-lg hover:scale-110 transition">
+    <img src="icons/wa.png.png" class="w-8 h-8">
+  </a>
+
+  <!-- INSTAGRAM -->
+  <a href="https://www.instagram.com/sutopo.dongpoxueyuan/"
+     target="_blank"
+     class="bg-gradient-to-tr from-purple-500 to-pink-500 p-3 rounded-full shadow-lg hover:scale-110 transition">
+    <img src="icons/ig.png.png" class="w-8 h-8">
+  </a>
+
+  <!-- TIKTOK -->
+  <a href="https://www.tiktok.com/@abasutopo/"
+     target="_blank"
+     class="bg-black p-3 rounded-full shadow-lg hover:scale-110 transition">
+    <img src="icons/tiktok.png.png" class="w-8 h-8">
+  </a>
+
+</div>
+
+</body>
+</html>

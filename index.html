@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title data-translate="title">Beranda – ABA SUTOPO</title>
+  <link rel="icon" type="image/png" href="favicon.png.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    #langMenu img {
+      width: 45px;
+      margin: 12px auto;
+      cursor: pointer;
+      display: block;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="bg-red-600 text-white p-4 shadow-md relative">
+  <div class="container mx-auto flex justify-between items-center">
+
+    <!-- LOGO -->
+    <div class="flex items-center space-x-3">
+      <img src="images/logo-satgas.png.png" class="w-12 h-12 rounded-full">
+      <a href="index.html" class="text-xl md:text-2xl font-bold" data-translate="judulNavbar">
+    ABA SUTOPO 東坡學院
+  </a>
+    </div>
+
+    <!-- RIGHT SIDE (LANG + MENU BUTTON) -->
+    <div class="flex items-center space-x-4">
+
+      <!-- LANGUAGE DROPDOWN -->
+      <div class="relative">
+        <button id="langBtn" 
+          class="px-2 py-1 rounded-lg shadow flex items-center gap-2"
+          style="background: #d62626; padding: 6px 10px; border-radius: 10px;">
+          <img id="langFlag" src="flags/Indonesia-Flag.png.png" class="w-6" alt="flag" style="border-radius:4px;">
+        </button>
+
+        <div id="langMenu"
+          class="hidden absolute right-0 mt-2 bg-gray-200 border rounded-xl shadow-lg p-2 w-24 z-50 text-center">
+          <img src="flags/Indonesia-Flag.png.png" data-lang="id">
+          <img src="flags/Chinese-Flag.png.png" data-lang="cn">
+          <img src="flags/United-Kingdom-Flag.png.png" data-lang="en">
+        </div>
+      </div>
+
+      <!-- HAMBURGER MENU BUTTON -->
+      <button id="menuBtn" class="text-white text-3xl font-bold select-none">
+        ☰
+      </button>
+
+      <!-- MENU DROPDOWN -->
+      <div id="menuDropdown"
+        class="hidden absolute right-4 top-16 bg-white text-black rounded-xl shadow-lg w-40 p-4 space-y-3 z-50">
+
+        <a href="kurikulum.html" class="block hover:text-red-600" data-translate="menuKurikulum">Kurikulum</a>
+        <a href="kegiatan.html" class="block hover:text-red-600" data-translate="menuKegiatan">Kegiatan</a>
+        <a href="program.html" class="block hover:text-red-600" data-translate="menuProgram">Program</a>
+        <a href="about.us.html" class="block hover:text-red-600" data-translate="menuAbout">About.us</a>
+
+      </div>
+
+    </div>
+  </div>
+</header>
+
+<!-- JS UNTUK DROPDOWN -->
+<script>
+  // --- Hamburger Menu ---
+  const menuBtn = document.getElementById("menuBtn");
+  const menuDropdown = document.getElementById("menuDropdown");
+
+  menuBtn.addEventListener("click", () => {
+    menuDropdown.classList.toggle("hidden");
+  });
+
+  // Tutup menu jika klik di luar
+  document.addEventListener("click", (e) => {
+    if (!menuBtn.contains(e.target) && !menuDropdown.contains(e.target)) {
+      menuDropdown.classList.add("hidden");
+    }
+  });
+
+  // --- Language Menu ---
+  const langBtn = document.getElementById("langBtn");
+  const langMenu = document.getElementById("langMenu");
+  const langFlag = document.getElementById("langFlag");
+
+  langBtn.addEventListener("click", () => {
+    langMenu.classList.toggle("hidden");
+  });
+
+  langMenu.querySelectorAll("img").forEach(img => {
+    img.addEventListener("click", () => {
+      langFlag.src = img.src;
+      langMenu.classList.add("hidden");
+    });
+  });
+
+  // Tutup lang menu jika klik di luar
+  document.addEventListener("click", (e) => {
+    if (!langBtn.contains(e.target) && !langMenu.contains(e.target)) {
+      langMenu.classList.add("hidden");
+    }
+  });
+</script>
+
+</header>
+
+<!-- BERANDA HERO -->
+<section class="relative py-28 bg-cover bg-center text-white"
+style="background-image: url('images/Satgas-ABAS.png.png');">
+
+  <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+
+  <div class="relative text-center container mx-auto px-4">
+    <h2 class="text-4xl font-bold mb-4" data-translate="hero1">AKADEMI BAHASA ASING SUTOPO</h2>
+    <h2 class="text-4xl font-bold mb-4" data-translate="hero2">東坡學院</h2>
+    <p class="text-lg" data-translate="heroText">——中华文化精粹 融汇国际视野.</p>
+
+    <a href="https://api.whatsapp.com/send/?phone=6285353584250"
+       class="inline-block bg-red-600 text-white px-6 py-3 rounded-lg mt-6 shadow-md
+             transform transition duration-300 hover:scale-105 hover:-translate-y-1 hover:shadow-xl">
+       <h3 class="text-xl font-bold" data-translate="hubungiKami">Hubungi Kami 联系我们</h3>    
+    </a>
+  </div>
+
+</section>
+
+<!-- GRID BUTTON 4 ITEM -->
+<section class="py-12 bg-gray-100">
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 container mx-auto px-4">
+
+    <!-- KURIKULUM -->
+    <a href="kurikulum.html"
+      class="flex items-center justify-between bg-red-600 text-white rounded-xl p-6 shadow-md
+             transform transition duration-300 hover:scale-105 hover:-translate-y-1 hover:shadow-xl">
+      <img src="images/Kurikulum.png.png" class="w-20 h-20">
+      <h3 class="text-xl font-bold" data-translate="menuKurikulum">Kurikulum</h3>
+    </a>
+
+    <!-- PROGRAM -->
+    <a href="program.html"
+      class="flex items-center justify-between bg-red-600 text-white rounded-xl p-6 shadow-md
+             transform transition duration-300 hover:scale-105 hover:-translate-y-1 hover:shadow-xl">
+      <img src="images/Program.png.png" class="w-20 h-20">
+      <h3 class="text-xl font-bold" data-translate="menuProgram">Program</h3>
+    </a>
+
+    <!-- KEGIATAN -->
+    <a href="kegiatan.html"
+      class="flex items-center justify-between bg-red-600 text-white rounded-xl p-6 shadow-md
+             transform transition duration-300 hover:scale-105 hover:-translate-y-1 hover:shadow-xl">
+      <img src="images/Kegiatan.png.png" class="w-20 h-20">
+      <h3 class="text-xl font-bold" data-translate="menuKegiatan">Kegiatan</h3>
+    </a>
+
+    <!-- ABOUT US -->
+    <a href="about.us.html"
+      class="flex items-center justify-between bg-red-600 text-white rounded-xl p-6 shadow-md
+             transform transition duration-300 hover:scale-105 hover:-translate-y-1 hover:shadow-xl">
+      <img src="images/Aboutus.png.png" class="w-20 h-20">
+      <h3 class="text-xl font-bold" data-translate="menuAbout">About.us</h3>
+    </a>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-red-600 text-white p-6">
+  <div class="container mx-auto text-center px-4">
+    <p data-translate="footerText1">
+      ABA SUTOPO — 语言通天下，汉语连五洲。东坡学院致力培养专业人才，开拓美好未来!
+    </p>
+
+    <p>Email: sutopo.dongpoxueyuan@gmail.com | Whatsapp: +62 853-5358-4250</p>
+
+    <p>Komp. Perum Citra 5 Blok H/1, Pegadungan, Kalideres, Jakarta Barat</p>
+
+    <p class="opacity-40">________________________________________________________________________________________________</p>
+
+    <p data-translate="footerText2">
+      Copyright © Akademi Bahasa Asing Sutopo All rights reserved
+    </p>
+  </div>
+</footer>
+
+<script>
+  const translations = {
+    id: {
+      title: "Beranda – ABA SUTOPO",
+      judulNavbar: "ABA SUTOPO 東坡學院",
+      menuKurikulum: "Kurikulum",
+      menuKegiatan: "Kegiatan",
+      menuProgram: "Program",
+      menuAbout: "About.us",
+      hero1: "AKADEMI BAHASA ASING SUTOPO",
+      hero2: "東坡學院",
+      heroText: "——中华文化精粹 融汇国际视野.",
+      hubungiKami: "Hubungi Kami 联系我们",
+      footerText1:
+        "ABA SUTOPO — 语言通天下，汉语连五洲。东坡学院致力培养专业人才，开拓美好未来!",
+      footerText2:
+        "Copyright © Akademi Bahasa Asing Sutopo All rights reserved",
+    },
+
+    cn: {
+      title: "首页 – 东坡学院",
+      judulNavbar: "ABA SUTOPO 東坡學院",
+      menuKurikulum: "课程设置",
+      menuKegiatan: "活动",
+      menuProgram: "项目",
+      menuAbout: "关于我们",
+      hero1: "苏托波外语学院",
+      hero2: "東坡學院",
+      heroText: "——中华文化精粹 融汇国际视野",
+      hubungiKami: "联系我们",
+      footerText1:
+        "ABA SUTOPO — 语言通天下，汉语连五洲。致力于培养专业人才！",
+      footerText2: "版权所有 © 东坡学院",
+    },
+
+    en: {
+      title: "Home – ABA SUTOPO",
+      judulNavbar: "ABA SUTOPO Academy",
+      menuKurikulum: "Curriculum",
+      menuKegiatan: "Activities",
+      menuProgram: "Programs",
+      menuAbout: "About Us",
+      hero1: "SUTOPO FOREIGN LANGUAGE ACADEMY",
+      hero2: "東坡學院",
+      heroText: "— Essence of Chinese Culture, Global Vision.",
+      hubungiKami: "Contact Us",
+      footerText1:
+        "ABA SUTOPO — Spreading language to the world, bridging cultures globally!",
+      footerText2: "Copyright © ABA Sutopo All rights reserved",
+    }
+  };
+
+  // Handle dropdown translate
+  document.querySelectorAll("#langMenu img").forEach((img) => {
+    img.addEventListener("click", () => {
+      const lang = img.dataset.lang;
+
+      // ganti icon bendera
+      document.getElementById("langFlag").src = img.src;
+
+      // tutup menu
+      document.getElementById("langMenu").classList.add("hidden");
+
+      // translate semua elemen
+      document.querySelectorAll("[data-translate]").forEach((el) => {
+        const key = el.getAttribute("data-translate");
+        if (translations[lang][key]) {
+          el.innerText = translations[lang][key];
+        }
+      });
+
+      // ganti title page
+      document.title = translations[lang]["title"];
+    });
+  });
+</script>
+
+<!-- FLOATING SOCIAL MEDIA ICONS -->
+<div class="fixed left-4 bottom-6 z-50 flex flex-col space-y-3">
+
+  <!-- SATGAS -->
+  <a href="https://satgas-abasutopo.github.io/satgas/"
+     class="bg-blue-500 p-3 rounded-full shadow-lg hover:scale-110 transition">
+    <img src="icons/satgas.png.png" class="w-8 h-8">
+  </a>
+
+  <!-- WHATSAPP -->
+  <a href="https://api.whatsapp.com/send/?phone=6285353584250"
+     target="_blank"
+     class="bg-green-500 p-3 rounded-full shadow-lg hover:scale-110 transition">
+    <img src="icons/wa.png.png" class="w-8 h-8">
+  </a>
+
+  <!-- INSTAGRAM -->
+  <a href="https://www.instagram.com/sutopo.dongpoxueyuan/"
+     target="_blank"
+     class="bg-gradient-to-tr from-purple-500 to-pink-500 p-3 rounded-full shadow-lg hover:scale-110 transition">
+    <img src="icons/ig.png.png" class="w-8 h-8">
+  </a>
+
+  <!-- TIKTOK -->
+  <a href="https://www.tiktok.com/@abasutopo/"
+     target="_blank"
+     class="bg-black p-3 rounded-full shadow-lg hover:scale-110 transition">
+    <img src="icons/tiktok.png.png" class="w-8 h-8">
+  </a>
+
+</div>
+
+</body>
+</html>
+
+

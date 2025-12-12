@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>About Us – ABA SUTOPO</title>
+  <link rel="icon" type="image/png" href="favicon.png.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    #langMenu img {
+      width: 45px;
+      margin: 12px auto;
+      cursor: pointer;
+      display: block;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="bg-red-600 text-white p-4 shadow-md relative">
+  <div class="container mx-auto flex justify-between items-center">
+
+    <!-- LOGO -->
+    <div class="flex items-center space-x-3">
+      <img src="images/logo-satgas.png.png" class="w-12 h-12 rounded-full">
+      <a href="index.html" class="text-xl md:text-2xl font-bold">
+        ABA SUTOPO 東坡學院
+      </a>
+    </div>
+
+    <!-- RIGHT SIDE (ONLY MENU BUTTON) -->
+    <div class="flex items-center space-x-4">
+
+      <!-- HAMBURGER MENU BUTTON -->
+      <button id="menuBtn" class="text-white text-3xl font-bold select-none">
+        ☰
+      </button>
+
+      <!-- MENU DROPDOWN -->
+      <div id="menuDropdown"
+        class="hidden absolute right-4 top-16 bg-white text-black rounded-xl shadow-lg w-40 p-4 space-y-3 z-50">
+
+        <a href="kurikulum.html" class="block hover:text-red-600">Kurikulum</a>
+        <a href="kegiatan.html" class="block hover:text-red-600">Kegiatan</a>
+        <a href="program.html" class="block hover:text-red-600">Program</a>
+        <a href="about.us.html" class="block hover:text-red-600">About.us</a>
+
+      </div>
+
+    </div>
+  </div>
+</header>
+
+<!-- JS UNTUK DROPDOWN -->
+<script>
+  // --- Hamburger Menu ---
+  const menuBtn = document.getElementById("menuBtn");
+  const menuDropdown = document.getElementById("menuDropdown");
+
+  menuBtn.addEventListener("click", () => {
+    menuDropdown.classList.toggle("hidden");
+  });
+
+  // Tutup menu jika klik di luar
+  document.addEventListener("click", (e) => {
+    if (!menuBtn.contains(e.target) && !menuDropdown.contains(e.target)) {
+      menuDropdown.classList.add("hidden");
+    }
+  });
+
+</script>
+
+</body>
+</html>
+
+
+<!-- ABOUTUS SECTION -->
+<section class="py-20 bg-white">
+  <div class="container mx-auto max-w-3xl text-center">
+
+    <!-- WRAPPER LOGO KIRI – FOTO – LOGO KANAN -->
+    <div class="flex justify-center items-start mb-6">
+
+      <!-- LOGO KIRI -->
+      <div class="flex-1 flex justify-center">
+        <img src="images/LOGO-Yayasan-Chongmian.png.png" class="w-28">
+      </div>
+
+      <!-- FOTO ORANG (TENGAH) -->
+      <div class="flex-1 flex justify-center">
+        <img src="images/FAJAR-SUHENDRA.png.png" class="w-40 h-40 rounded-md object-contain">
+      </div>
+
+      <!-- LOGO KANAN -->
+      <div class="flex-1 flex justify-center">
+        <img src="images/STBA-PIA.png.png" class="w-28">
+      </div>
+
+    </div>
+
+    <!-- NAMA -->
+    <h2 class="text-xl font-bold mt-4">
+      FAJAR SUHENDRA <span class="text-red-600">黄苏达</span>
+    </h2>
+
+    <!-- JABATAN -->
+    <p class="mt-2 leading-relaxed">
+      Ketua Yayasan Pendidikan Cinta Mulia / Chongmin <span class="text-red-600">崇敏教育基金会会长</span><br>
+      Pendiri PT. Growth Sumatera Industry <span class="text-red-600">苏州茂盛实业创办人</span>
+    </p>
+
+    <!-- PARAGRAF INDONESIA -->
+    <p class="mt-6 text-justify leading-loose">
+      Seiring dengan semakin mendalamnya kerjasama ekonomi dan perdagangan antara Indonesia dan Tiongkok,
+      dan didorong oleh kerjasama strategis kedua negara, semakin banyak perusahaan Tiongkok yang memasuki
+      pasar Indonesia. Hal ini menyebabkan lonjakan permintaan akan Sumber Daya Manusia Berbahasa Mandarin.
+      Dengan latar belakang ini, ABA Sutopo didirikan dengan tujuan menjadikan Indonesia, khususnya Jakarta,
+      menjadi pusat internasional bagi integrasi ekonomi dan budaya Timur-Barat.
+    </p>
+
+    <!-- PARAGRAF CHINA -->
+    <p class="mt-4 text-justify leading-loose text-red-700">
+      随着印尼和中国经贸合作越来越深入，在两国战略合作的推动下，越来越多的中国企业进入印尼市
+      场。这使得汉语人才需求激增。正是此背景下，东坡学院应运而生，旨在把印尼，尤其是雅加达，
+      建设成为一个打造东西方经济、文化交流的重要国际中心。
+    </p>
+
+  </div>
+</section>
+
+<!-- SECTION 2: PROFIL KEDUA (MODEL SAMA) -->
+<section class="py-16 bg-white">
+  <div class="container mx-auto max-w-3xl text-center">
+
+    <!-- FOTO -->
+    <img src="images/DR-YUDI-SUTANTO,M-ED.png.png" class="w-40 h-40 mx-auto rounded-md object-contain">
+
+    <!-- NAMA -->
+    <h2 class="text-xl font-bold mt-4">DR. YUDI SUTIANTO, M.ED. <span class="text-red-600">陈苏贤博士</span></h2>
+
+    <!-- JABATAN -->
+    <p class="mt-2 leading-relaxed">
+      Ketua ABA SUTOPO <span class="text-red-600">东坡学院院长</span>
+    </p>
+
+    <!-- PARAGRAF INDONESIA -->
+    <p class="mt-6 text-justify leading-loose">
+      Bahasa adalah jembatan yang menghubungkan dunia. ABA Sutopo berkomitmen untuk mengembangkan bakat
+      profesional dan membuka masa depan yang cemerlang.
+    </p>
+
+    <!-- PARAGRAF CHINA -->
+    <p class="mt-4 text-justify leading-loose text-red-700">
+      语言是桥梁，我们致力于培养未来专业人才，开拓美好未来！
+    </p>
+
+  </div>
+</section>
+
+<!-- SECTION 3: KAMPUS KAMI (MODEL TEXT) -->
+<section class="container mx-auto px-6 py-12 leading-relaxed text-justify">
+
+  <!-- KAMPUS KAMI -->
+  <h2 class="text-xl font-bold mb-2">KAMPUS KAMI</h2>
+  <p class="mb-4">
+    Akademi Bahasa Asing Sutopo (ABA SUTOPO) adalah institusi pendidikan tinggi bahasa dan budaya yang modern dan baru didirikan di Indonesia. Nama ABA SUTOPO diambil dari nama Sastrawan besar Tiongkok, Su Dongpo, yang berarti keindahan bahasa dan kebijaksanaan dalam seni sastra. ABA SUTOPO mengemban misi untuk mengajarkan bahasa dan budaya Tiongkok dan berkomitmen untuk membina para pengajar dan talenta aplikasi bahasa Mandarin yang berdaya saing internasional.
+  </p>
+
+  <p class="mb-4">
+    ABA SUTOPO berlokasi di pusat kota Jakarta, kampus ini memiliki gedung megah dan fasilitas canggih. Ruang belajar, perpustakaan, laboratorium bahasa, hall pertunjukan multifungsi, asrama mahasiswa, dan fasilitas pendukung lainnya yang lengkap, menyediakan lingkungan belajar dan kehidupan yang unggul.
+  </p>
+
+  <!-- VISI -->
+  <h2 class="text-xl font-bold mt-6 mb-2">VISI</h2>
+  <p class="mb-4">
+    Mewujudkan akademi unggul bertaraf Internasional guna mensejahterakan Bangsa melalui pendidikan bermutu.
+  </p>
+
+  <!-- MISI -->
+  <h2 class="text-xl font-bold mt-6 mb-2">MISI</h2>
+
+  <ol class="list-decimal ml-6 space-y-2">
+    <li>
+      menyelenggarakan pendidikan dan pengajaran di berbagai bidang ilmu yang unggul dan berkualitas dan yang relevan dengan kebutuhan masyarakat dan perkembangan iptek,
+    </li>
+    <li>
+      menyelenggarakan penelitian yang menopang pengembangan pendidikan dan kemajuan iptek di berbagai bidang ilmu,
+    </li>
+    <li>
+      menyelenggarakan pengabdian kepada masyarakat di berbagai bidang yang berorientasi pada kepentingan bangsa dan kesejahteraan masyarakat,
+    </li>
+    <li>
+      menyelenggarakan kerja sama secara berkelanjutan dengan lembaga pendidikan, lembaga penelitian dan pelayanan, lembaga pemerintah, dunia usaha dan industri serta masyarakat baik di dalam maupun luar negeri.
+    </li>
+  </ol>
+
+  <!-- KEUNGGULAN KAMPUS -->
+  <h2 class="text-xl font-bold mt-10 mb-2">KEUNGGULAN KAMPUS</h2>
+
+  <p class="font-semibold mb-1">✓ Pengajaran Berkualitas</p>
+  <p class="mb-4">
+    Diampu oleh Dosen Native Speaker Tiongkok dan Dosen Lokal lulusan S2 dari Tiongkok.<br>
+    Menggunakan Bahan Ajar Bahasa Mandarin berstandar Internasional (HSK + Mandarin Konsentrasi).
+  </p>
+
+  <p class="font-semibold mb-1">✓ Program Transfer of Credit 3+1</p>
+  <p class="mb-4">
+    Bekerjasama dengan berbagai perguruan tinggi terdepan di Tiongkok dalam Program 3+1, yakni kuliah 3 tahun di Indonesia + 1 tahun di Tiongkok.
+  </p>
+
+  <p class="font-semibold mb-1">✓ Program Belajar Berbasis Praktek</p>
+  <p class="mb-4">
+    Memiliki berbagai konsentrasi, seperti Mandarin Keuangan, Mandarin Bisnis, Mandarin Pariwisata, Mandarin Media dan lain-lain.<br>
+    Fokus pada penerapan keterampilan berbicara dan lintas budaya.
+  </p>
+
+  <p class="font-semibold mb-1">✓ Kesempatan karir yang luas</p>
+  <p class="mb-4">
+    Bekerjasama dengan berbagai perusahaan Tiongkok dalam bidang magang dan karir. Peluang magang di bidang perbankan, e-commerce, energi, media massa, pendidikan dan bidang profesi lainnya tersedia bagi seluruh mahasiswa.
+  </p>
+
+  <p class="font-semibold mb-1">✓ Lingkungan kuliah dengan nuansa budaya yang kental</p>
+  <p class="mb-4">
+    Mengadakan berbagai Perayaan Budaya Tionghoa, Kaligrafi, Chinese Painting, Tea Art dan berbagai kegiatan budaya tradisional lainnya. Menciptakan atmosfer belajar yang memadukan unsur Bahasa + Budaya.
+  </p>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer class="bg-red-600 text-white p-6">
+  <div class="container mx-auto text-center px-4">
+    <p data-translate="footerText1">
+      ABA SUTOPO — 语言通天下，汉语连五洲。东坡学院致力培养专业人才，开拓美好未来!
+    </p>
+
+    <p>Email: sutopo.dongpoxueyuan@gmail.com | Whatsapp: +62 853-5358-4250</p>
+
+    <p>Komp. Perum Citra 5 Blok H/1, Pegadungan, Kalideres, Jakarta Barat</p>
+
+    <p class="opacity-40">________________________________________________________________________________________________</p>
+
+    <p data-translate="footerText2">
+      Copyright © Akademi Bahasa Asing Sutopo All rights reserved
+    </p>
+  </div>
+</footer> 
+
+<!-- FLOATING SOCIAL MEDIA ICONS -->
+<div class="fixed left-4 bottom-6 z-50 flex flex-col space-y-3">
+
+  <!-- SATGAS -->
+  <a href="https://satgas-abasutopo.github.io/satgas/"
+     class="bg-blue-500 p-3 rounded-full shadow-lg hover:scale-110 transition">
+    <img src="icons/satgas.png.png" class="w-8 h-8">
+  </a>
+
+  <!-- WHATSAPP -->
+  <a href="https://api.whatsapp.com/send/?phone=6285353584250"
+     target="_blank"
+     class="bg-green-500 p-3 rounded-full shadow-lg hover:scale-110 transition">
+    <img src="icons/wa.png.png" class="w-8 h-8">
+  </a>
+
+  <!-- INSTAGRAM -->
+  <a href="https://www.instagram.com/sutopo.dongpoxueyuan/"
+     target="_blank"
+     class="bg-gradient-to-tr from-purple-500 to-pink-500 p-3 rounded-full shadow-lg hover:scale-110 transition">
+    <img src="icons/ig.png.png" class="w-8 h-8">
+  </a>
+
+  <!-- TIKTOK -->
+  <a href="https://www.tiktok.com/@abasutopo/"
+     target="_blank"
+     class="bg-black p-3 rounded-full shadow-lg hover:scale-110 transition">
+    <img src="icons/tiktok.png.png" class="w-8 h-8">
+  </a>
+
+</div>
+
+</body>
+</html>
+
+

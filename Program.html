@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title data-translate="title">Beranda – ABA SUTOPO</title>
+  <link rel="icon" type="image/png" href="favicon.png.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    #langMenu img {
+      width: 45px;
+      margin: 12px auto;
+      cursor: pointer;
+      display: block;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="bg-red-600 text-white p-4 shadow-md relative">
+  <div class="container mx-auto flex justify-between items-center">
+
+    <!-- LOGO -->
+    <div class="flex items-center space-x-3">
+      <img src="images/logo-satgas.png.png" class="w-12 h-12 rounded-full" alt="Logo ABA Sutopo">
+      <a href="index.html" class="text-xl md:text-2xl font-bold" data-translate="judulNavbar">
+        ABA SUTOPO 東坡學院
+      </a>
+    </div>
+
+    <!-- RIGHT SIDE (LANG + MENU BUTTON) -->
+    <div class="flex items-center space-x-4">
+
+      <!-- LANGUAGE DROPDOWN -->
+      <div class="relative">
+        <button id="langBtn" 
+          class="px-2 py-1 rounded-lg shadow flex items-center gap-2"
+          style="background: #d62626; padding: 6px 10px; border-radius: 10px;">
+          <img id="langFlag" src="flags/Indonesia-Flag.png.png" class="w-6" alt="flag" style="border-radius:4px;">
+        </button>
+
+
+        <div id="langMenu"
+          class="hidden absolute right-0 mt-2 bg-gray-200 border rounded-xl shadow-lg p-2 w-24 z-50 text-center">
+          <img src="flags/Indonesia-Flag.png.png" data-lang="id" alt="Indonesia">
+          <img src="flags/Chinese-Flag.png.png" data-lang="cn" alt="China">
+          <img src="flags/United-Kingdom-Flag.png.png" data-lang="en" alt="English">
+        </div>
+      </div>
+
+      <!-- HAMBURGER MENU BUTTON -->
+      <button id="menuBtn" class="text-white text-3xl font-bold select-none">
+        ☰
+      </button>
+
+      <!-- MENU DROPDOWN -->
+      <div id="menuDropdown"
+        class="hidden absolute right-4 top-16 bg-white text-black rounded-xl shadow-lg w-44 p-4 space-y-3 z-50">
+
+        <a href="kurikulum.html" class="block hover:text-red-600" data-translate="menuKurikulum">Kurikulum</a>
+        <a href="kegiatan.html" class="block hover:text-red-600" data-translate="menuKegiatan">Kegiatan</a>
+        <a href="program.html" class="block hover:text-red-600" data-translate="menuProgram">Program</a>
+        <a href="about.us.html" class="block hover:text-red-600" data-translate="menuAbout">About.us</a>
+
+      </div>
+
+    </div>
+  </div>
+</header>
+
+<!-- JS UNTUK DROPDOWN -->
+<script>
+  // --- Hamburger Menu ---
+  const menuBtn = document.getElementById("menuBtn");
+  const menuDropdown = document.getElementById("menuDropdown");
+
+  menuBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    menuDropdown.classList.toggle("hidden");
+  });
+
+  // Tutup menu jika klik di luar
+  document.addEventListener("click", (e) => {
+    if (!menuBtn.contains(e.target) && !menuDropdown.contains(e.target)) {
+      menuDropdown.classList.add("hidden");
+    }
+  });
+
+  // --- Language Menu ---
+  const langBtn = document.getElementById("langBtn");
+  const langMenu = document.getElementById("langMenu");
+  const langFlag = document.getElementById("langFlag");
+
+  langBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    langMenu.classList.toggle("hidden");
+  });
+
+  langMenu.querySelectorAll("img").forEach(img => {
+    img.addEventListener("click", (ev) => {
+      ev.stopPropagation();
+      langFlag.src = img.src;
+      langMenu.classList.add("hidden");
+      // language change handled by translate script added later
+    });
+  });
+
+  // Tutup lang menu jika klik di luar
+  document.addEventListener("click", (e) => {
+    if (!langBtn.contains(e.target) && !langMenu.contains(e.target)) {
+      langMenu.classList.add("hidden");
+    }
+  });
+</script>
+
+<!-- PROGRAM INTERNASIONAL -->
+<section class="container mx-auto px-6 py-12 text-justify leading-relaxed">
+
+  <h2 class="text-center font-bold text-2xl md:text-3xl mb-10" data-translate="progIntTitle">
+    PROGRAM INTERNASIONAL
+  </h2>
+
+  <!-- LOGO UNIVERSITAS -->
+  <div class="flex justify-center gap-12 mb-8">
+    <img src="images/中国university.png.png" class="w-90 md:w-[400px] lg:w-[470px]" alt="Universitas Mitra">
+  </div>
+
+  <p class="mb-2" data-translate="progIntDesc1">
+    ABA SUTOPO bekerjasama dengan beberapa Universitas ternama di China dalam Program 3+1,
+    yaitu 6 semester kuliah di ABA SUTOPO dan 2 semester di universitas China sebagai berikut:
+  </p>
+
+  <ol class="list-decimal ml-6 mb-2">
+    <li data-translate="progIntList1">Tianjin University, Tianjin</li>
+    <li data-translate="progIntList2">South China Normal University (SCNU), Guangzhou</li>
+    <li data-translate="progIntList3">Huaqiao University, Xiamen</li>
+  </ol>
+
+  <p class="mb-6" data-translate="progIntDesc2">
+    Program ini berlaku untuk mahasiswa Program Studi Bahasa Mandarin. Lulusan dari Program ini
+    akan mendapatkan gelar B.A (Bachelor of Arts) dari salah satu universitas China di atas
+    dengan ketentuan telah menyelesaikan seluruh administrasi terkait.
+  </p>
+</section>
+
+
+<!-- BIAYA PERKULIAHAN -->
+<section class="container mx-auto px-8 py-16 text-justify leading-relaxed">
+
+  <!-- Judul -->
+  <h2 class="text-center font-bold text-xl md:text-2xl mb-2" data-translate="biayaTitle1">
+    BIAYA PERKULIAHAN
+  </h2>
+  <h3 class="text-center font-bold text-lg md:text-xl mb-8" data-translate="biayaTitle2">
+    PROGRAM STUDI BAHASA MANDARIN
+  </h3>
+
+  <!-- Deskripsi biaya -->
+  <div class="mb-10 text-[15px]">
+    <p><span data-translate="biaya1">Biaya Pendaftaran</span>......................................................................................... <strong data-translate="biayaRegFeeStrong">Free</strong></p>
+    <p><span data-translate="biaya2">Biaya Pembangunan</span>.................................................................................... <strong data-translate="biayaDevFeeStrong">Free</strong></p>
+    <p><span data-translate="biaya3">Biaya Perlengkapan</span> <i data-translate="biaya3Note">(termasuk PKKMB, jas almamater, KTM, kertas ujian dan kegiatan ekskul)</i>...... <strong>Rp 5.000.000,-</strong></p>
+    <p><span data-translate="biaya4">Biaya Kuliah per tahun</span> ............................................................................ <strong>Rp 20.000.000,-</strong></p>
+    <p class="text-sm mt-1 italic" data-translate="biayaNote">(biaya di atas belum termasuk biaya Buku, Ujian Akhir dan Wisuda)</p>
+  </div>
+
+  <!-- TABEL BIAYA 3 TAHUN -->
+  <h3 class="text-center font-bold text-lg mt-8 mb-5" data-translate="table3Years">TABEL BIAYA KULIAH SELAMA 3 TAHUN</h3>
+
+  <!-- TAHUN I -->
+  <div class="border border-black p-4 mb-6 text-sm">
+    <table class="w-full">
+      <thead class="font-bold border-b border-black">
+        <tr>
+          <td class="w-10" data-translate="colNO">NO</td>
+          <td data-translate="colBIAYA">BIAYA TAHUN KE-I</td>
+          <td class="w-20" data-translate="colCICILAN">CICILAN</td>
+          <td class="w-40" data-translate="colWAKTU">WAKTU PEMBAYARAN</td>
+          <td class="w-32" data-translate="colNOMINAL">NOMINAL</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td data-translate="t1_item1">Biaya Perlengkapan</td>
+          <td data-translate="t1_item1_cicilan">Tahun I</td>
+          <td data-translate="t1_item1_waktu">sewaktu mendaftar</td>
+          <td>Rp 2.000.000,-</td>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td></td>
+          <td data-translate="t1_row2_cicilan">I</td>
+          <td data-translate="t1_row2_waktu">sewaktu mendaftar</td>
+          <td>Rp 2.500.000,-</td>
+        </tr>
+
+        <tr>
+          <td>2</td>
+          <td data-translate="t1_item2">Biaya Kuliah Semester I</td>
+          <td data-translate="t1_row3_cicilan">II</td>
+          <td data-translate="t1_row3_waktu">Okt 2025</td>
+          <td>Rp 2.500.000,-</td>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td></td>
+          <td data-translate="t1_row4_cicilan">III</td>
+          <td data-translate="t1_row4_waktu">Des 2025</td>
+          <td>Rp 5.000.000,-</td>
+        </tr>
+
+        <tr>
+          <td>3</td>
+          <td data-translate="t1_item3">Biaya Kuliah Semester II</td>
+          <td data-translate="t1_row5_cicilan">I</td>
+          <td data-translate="t1_row5_waktu">Mar 2026</td>
+          <td>Rp 5.000.000,-</td>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td></td>
+          <td data-translate="t1_row6_cicilan">II</td>
+          <td data-translate="t1_row6_waktu">Mei 2026</td>
+          <td>Rp 5.000.000,-</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="font-bold text-right mt-2"><span data-translate="totalLabel">TOTAL</span>  Rp 22.000.000,-</p>
+  </div>
+
+  <!-- TAHUN II -->
+  <div class="border border-black p-4 mb-6 text-sm">
+    <table class="w-full">
+      <thead class="font-bold border-b border-black">
+        <tr>
+          <td class="w-10" data-translate="colNO">NO</td>
+          <td data-translate="tahun2">BIAYA TAHUN KE-II</td>
+          <td class="w-20" data-translate="colCICILAN">CICILAN</td>
+          <td class="w-40" data-translate="colWAKTU">WAKTU PEMBAYARAN</td>
+          <td class="w-32" data-translate="colNOMINAL">NOMINAL</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td data-translate="t2_item1">Biaya Perlengkapan</td>
+          <td data-translate="t2_item1_cicilan">Tahun II</td>
+          <td data-translate="t2_item1_waktu">Ags 2026</td>
+          <td>Rp 2.000.000,-</td>
+        </tr>
+
+        <tr>
+          <td>2</td>
+          <td data-translate="t2_item2">Biaya Kuliah Semester III</td>
+          <td data-translate="t2_row2_cicilan">I</td>
+          <td data-translate="t2_row2_waktu">Ags 2026</td>
+          <td>Rp 5.000.000,-</td>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td></td>
+          <td data-translate="t2_row3_cicilan">II</td>
+          <td data-translate="t2_row3_waktu">Des 2026</td>
+          <td>Rp 5.000.000,-</td>
+        </tr>
+
+        <tr>
+          <td>3</td>
+          <td data-translate="t2_item3">Biaya Kuliah Semester IV</td>
+          <td data-translate="t2_row4_cicilan">I</td>
+          <td data-translate="t2_row4_waktu">Mar 2027</td>
+          <td>Rp 5.000.000,-</td>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td></td>
+          <td data-translate="t2_row5_cicilan">II</td>
+          <td data-translate="t2_row5_waktu">Mei 2027</td>
+          <td>Rp 5.000.000,-</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="font-bold text-right mt-2"><span data-translate="totalLabel">TOTAL</span>  Rp 22.000.000,-</p>
+  </div>
+
+  <!-- TAHUN III -->
+  <div class="border border-black p-4 mb-6 text-sm">
+    <table class="w-full">
+      <thead class="font-bold border-b border-black">
+        <tr>
+          <td class="w-10" data-translate="colNO">NO</td>
+          <td data-translate="tahun3">BIAYA TAHUN KE-III</td>
+          <td class="w-20" data-translate="colCICILAN">CICILAN</td>
+          <td class="w-40" data-translate="colWAKTU">WAKTU PEMBAYARAN</td>
+          <td class="w-32" data-translate="colNOMINAL">NOMINAL</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td data-translate="t3_item1">Biaya Perlengkapan</td>
+          <td data-translate="t3_item1_cicilan">Tahun III</td>
+          <td data-translate="t3_item1_waktu">Ags 2027</td>
+          <td>Rp 1.000.000,-</td>
+        </tr>
+
+        <tr>
+          <td>2</td>
+          <td data-translate="t3_item2">Biaya Kuliah Semester V</td>
+          <td data-translate="t3_row2_cicilan">I</td>
+          <td data-translate="t3_row2_waktu">Ags 2027</td>
+          <td>Rp 5.000.000,-</td>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td></td>
+          <td data-translate="t3_row3_cicilan">II</td>
+          <td data-translate="t3_row3_waktu">Des 2027</td>
+          <td>Rp 5.000.000,-</td>
+        </tr>
+
+        <tr>
+          <td>3</td>
+          <td data-translate="t3_item3">Biaya Kuliah Semester VI</td>
+          <td data-translate="t3_row4_cicilan">I</td>
+          <td data-translate="t3_row4_waktu">Mar 2028</td>
+          <td>Rp 5.000.000,-</td>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td></td>
+          <td data-translate="t3_row5_cicilan">II</td>
+          <td data-translate="t3_row5_waktu">Mei 2028</td>
+          <td>Rp 5.000.000,-</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="font-bold text-right mt-2"><span data-translate="totalLabel">TOTAL</span>  Rp 21.000.000,-</p>
+  </div>
+
+  <!-- TABEL POTONGAN HARGA -->
+  <h3 class="text-center font-bold text-lg mt-12 mb-4" data-translate="potonganTitle">TABEL POTONGAN HARGA</h3>
+
+  <div class="border border-black p-4 text-sm mb-6">
+    <table class="w-full">
+      <thead class="font-bold border-b border-black">
+        <tr>
+          <td class="w-10" data-translate="colNO">NO</td>
+          <td data-translate="colDiskon">DISKON TUNAI KERAS</td>
+          <td data-translate="colHargaAwal">HARGA AWAL</td>
+          <td data-translate="colNominal">NOMINAL DISKON</td>
+          <td data-translate="colHargaSetelah">HARGA SETELAH DISKON</td>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td data-translate="disc_row1_period">1 tahun</td>
+          <td>Rp 20.000.000,-</td>
+          <td>Rp 1.600.000,-</td>
+          <td>Rp 18.400.000,-</td>
+        </tr>
+
+        <tr>
+          <td>2</td>
+          <td data-translate="disc_row2_period">2 tahun</td>
+          <td>Rp 40.000.000,-</td>
+          <td>Rp 3.600.000,-</td>
+          <td>Rp 36.400.000,-</td>
+        </tr>
+
+        <tr>
+          <td>3</td>
+          <td data-translate="disc_row3_period">3 tahun</td>
+          <td>Rp 60.000.000,-</td>
+          <td>Rp 6.000.000,-</td>
+          <td>Rp 54.000.000,-</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p class="italic text-sm" data-translate="catatanBiaya">Catatan: Segala biaya yang telah dibayar tidak dapat dikembalikan dengan alasan apapun</p>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-red-600 text-white p-6">
+  <div class="container mx-auto text-center px-4">
+    <p data-translate="footerText1">
+      ABA SUTOPO — 语言通天下，汉语连五洲。东坡学院致力培养专业人才，开拓美好未来!
+    </p>
+
+    <p><span data-translate="contactEmailLabel">Email</span>: sutopo.dongpoxueyuan@gmail.com | <span data-translate="contactWhatsappLabel">Whatsapp</span>: +62 853-5358-4250</p>
+
+    <p>Komp. Perum Citra 5 Blok H/1, Pegadungan, Kalideres, Jakarta Barat</p>
+
+    <p class="opacity-40">________________________________________________________________________________________________</p>
+
+    <p data-translate="footerText2">
+      Copyright © Akademi Bahasa Asing Sutopo All rights reserved
+    </p>
+  </div>
+</footer>
+
+<!-- TRANSLATE SCRIPT (ID / CN / EN) -->
+<script>
+/* ============================================
+   DICTIONARY TERJEMAHAN 3 BAHASA (ID–CN–EN)
+   ============================================ */
+
+const translations = {
+  id: {
+    title: "Beranda – ABA SUTOPO",
+    judulNavbar: "ABA SUTOPO 東坡學院",
+    menuKurikulum: "Kurikulum",
+    menuKegiatan: "Kegiatan",
+    menuProgram: "Program",
+    menuAbout: "Tentang Kami",
+
+    // Program Internasional
+    progIntTitle: "PROGRAM INTERNASIONAL",
+    progIntDesc1: "ABA SUTOPO bekerjasama dengan beberapa Universitas ternama di China dalam Program 3+1, yaitu 6 semester kuliah di ABA SUTOPO dan 2 semester di universitas China sebagai berikut:",
+    progIntList1: "Tianjin University, Tianjin",
+    progIntList2: "South China Normal University (SCNU), Guangzhou",
+    progIntList3: "Huaqiao University, Xiamen",
+    progIntDesc2: "Program ini berlaku untuk mahasiswa Program Studi Bahasa Mandarin. Lulusan dari Program ini akan mendapatkan gelar B.A (Bachelor of Arts) dari salah satu universitas China di atas dengan ketentuan telah menyelesaikan seluruh administrasi terkait.",
+
+    // Biaya
+    biayaTitle1: "BIAYA PERKULIAHAN",
+    biayaTitle2: "PROGRAM STUDI BAHASA MANDARIN",
+    biaya1: "Biaya Pendaftaran",
+    biayaRegFeeStrong: "Free",
+    biaya2: "Biaya Pembangunan",
+    biayaDevFeeStrong: "Free",
+    biaya3: "Biaya Perlengkapan",
+    biaya3Note: "(termasuk PKKMB, jas almamater, KTM, kertas ujian dan kegiatan ekskul)",
+    biaya4: "Biaya Kuliah per tahun",
+    biayaNote: "(biaya di atas belum termasuk biaya Buku, Ujian Akhir dan Wisuda)",
+    table3Years: "TABEL BIAYA KULIAH SELAMA 3 TAHUN",
+
+    // Column headers
+    colNO: "NO",
+    colBIAYA: "KETERANGAN",
+    colCICILAN: "CICILAN",
+    colWAKTU: "WAKTU PEMBAYARAN",
+    colNOMINAL: "NOMINAL",
+
+    // Tahun I rows
+    t1_item1: "Biaya Perlengkapan",
+    t1_item1_cicilan: "Tahun I",
+    t1_item1_waktu: "sewaktu mendaftar",
+    t1_row2_cicilan: "I",
+    t1_row2_waktu: "sewaktu mendaftar",
+    t1_item2: "Biaya Kuliah Semester I",
+    t1_row3_cicilan: "II",
+    t1_row3_waktu: "Okt 2025",
+    t1_row4_cicilan: "III",
+    t1_row4_waktu: "Des 2025",
+    t1_item3: "Biaya Kuliah Semester II",
+    t1_row5_cicilan: "I",
+    t1_row5_waktu: "Mar 2026",
+    t1_row6_cicilan: "II",
+    t1_row6_waktu: "Mei 2026",
+
+    // Tahun II
+    tahun2: "BIAYA TAHUN KE-II",
+    t2_item1: "Biaya Perlengkapan",
+    t2_item1_cicilan: "Tahun II",
+    t2_item1_waktu: "Ags 2026",
+    t2_item2: "Biaya Kuliah Semester III",
+    t2_row2_cicilan: "I",
+    t2_row2_waktu: "Ags 2026",
+    t2_row3_cicilan: "II",
+    t2_row3_waktu: "Des 2026",
+    t2_item3: "Biaya Kuliah Semester IV",
+    t2_row4_cicilan: "I",
+    t2_row4_waktu: "Mar 2027",
+    t2_row5_cicilan: "II",
+    t2_row5_waktu: "Mei 2027",
+
+    // Tahun III
+    tahun3: "BIAYA TAHUN KE-III",
+    t3_item1: "Biaya Perlengkapan",
+    t3_item1_cicilan: "Tahun III",
+    t3_item1_waktu: "Ags 2027",
+    t3_item2: "Biaya Kuliah Semester V",
+    t3_row2_cicilan: "I",
+    t3_row2_waktu: "Ags 2027",
+    t3_row3_cicilan: "II",
+    t3_row3_waktu: "Des 2027",
+    t3_item3: "Biaya Kuliah Semester VI",
+    t3_row4_cicilan: "I",
+    t3_row4_waktu: "Mar 2028",
+    t3_row5_cicilan: "II",
+    t3_row5_waktu: "Mei 2028",
+
+    // Discount table
+    potonganTitle: "TABEL POTONGAN HARGA",
+    colDiskon: "DISKON TUNAI KERAS",
+    colHargaAwal: "HARGA AWAL",
+    colNominal: "NOMINAL DISKON",
+    colHargaSetelah: "HARGA SETELAH DISKON",
+    disc_row1_period: "1 tahun",
+    disc_row2_period: "2 tahun",
+    disc_row3_period: "3 tahun",
+
+    totalLabel: "TOTAL",
+    catatanBiaya: "Catatan: Segala biaya yang telah dibayar tidak dapat dikembalikan dengan alasan apapun",
+
+    // Footer
+    footerText1: "ABA SUTOPO — 语言通天下，汉语连五洲。东坡学院致力培养专业人才，开拓美好未来!",
+    footerText2: "Copyright © Akademi Bahasa Asing Sutopo All rights reserved",
+    contactEmailLabel: "Email",
+    contactWhatsappLabel: "Whatsapp",
+  },
+
+  cn: {
+    title: "首页 – ABA SUTOPO",
+    judulNavbar: "ABA SUTOPO 東坡學院",
+    menuKurikulum: "课程安排",
+    menuKegiatan: "校园活动",
+    menuProgram: "项目课程",
+    menuAbout: "关于我们",
+
+    // Program Internasional
+    progIntTitle: "国际合作项目",
+    progIntDesc1: "ABA SUTOPO 与中国多所知名大学合作开设 3+1 项目：在本校学习 6 个学期，赴中国大学学习 2 个学期，合作大学如下：",
+    progIntList1: "天津大学（天津）",
+    progIntList2: "华南师范大学（广州）",
+    progIntList3: "华侨大学（厦门）",
+    progIntDesc2: "该项目面向汉语专业学生。毕业生在完成所有相关手续后，可获得以上中国合作高校之一颁发的文学学士（B.A）学位。",
+
+    // Biaya
+    biayaTitle1: "学费说明",
+    biayaTitle2: "汉语专业",
+    biaya1: "报名费",
+    biayaRegFeeStrong: "免费",
+    biaya2: "建设费",
+    biayaDevFeeStrong: "免费",
+    biaya3: "用品费",
+    biaya3Note: "（含迎新活动、校服、学生证、考试用纸及课外活动）",
+    biaya4: "年度学费",
+    biayaNote: "（以上费用不含教材费、期末考试费和毕业典礼费用）",
+    table3Years: "三年学费总表",
+
+    // Column headers
+    colNO: "编号",
+    colBIAYA: "费用项目",
+    colCICILAN: "分期",
+    colWAKTU: "付款时间",
+    colNOMINAL: "金额",
+
+    // Tahun I rows
+    t1_item1: "用品费",
+    t1_item1_cicilan: "第一年",
+    t1_item1_waktu: "报名时支付",
+    t1_row2_cicilan: "I",
+    t1_row2_waktu: "报名时支付",
+    t1_item2: "第一学期学费",
+    t1_row3_cicilan: "II",
+    t1_row3_waktu: "2025年10月",
+    t1_row4_cicilan: "III",
+    t1_row4_waktu: "2025年12月",
+    t1_item3: "第二学期学费",
+    t1_row5_cicilan: "I",
+    t1_row5_waktu: "2026年3月",
+    t1_row6_cicilan: "II",
+    t1_row6_waktu: "2026年5月",
+
+    // Tahun II
+    tahun2: "第二年费用",
+    t2_item1: "用品费",
+    t2_item1_cicilan: "第二年",
+    t2_item1_waktu: "2026年8月",
+    t2_item2: "第三学期学费",
+    t2_row2_cicilan: "I",
+    t2_row2_waktu: "2026年8月",
+    t2_row3_cicilan: "II",
+    t2_row3_waktu: "2026年12月",
+    t2_item3: "第四学期学费",
+    t2_row4_cicilan: "I",
+    t2_row4_waktu: "2027年3月",
+    t2_row5_cicilan: "II",
+    t2_row5_waktu: "2027年5月",
+
+    // Tahun III
+    tahun3: "第三年费用",
+    t3_item1: "用品费",
+    t3_item1_cicilan: "第三年",
+    t3_item1_waktu: "2027年8月",
+    t3_item2: "第五学期学费",
+    t3_row2_cicilan: "I",
+    t3_row2_waktu: "2027年8月",
+    t3_row3_cicilan: "II",
+    t3_row3_waktu: "2027年12月",
+    t3_item3: "第六学期学费",
+    t3_row4_cicilan: "I",
+    t3_row4_waktu: "2028年3月",
+    t3_row5_cicilan: "II",
+    t3_row5_waktu: "2028年5月",
+
+    // Discount table
+    potonganTitle: "现金优惠表",
+    colDiskon: "现金折扣",
+    colHargaAwal: "原价",
+    colNominal: "折扣金额",
+    colHargaSetelah: "折后价格",
+    disc_row1_period: "1 年",
+    disc_row2_period: "2 年",
+    disc_row3_period: "3 年",
+
+    totalLabel: "合计",
+    catatanBiaya: "注意：所有已缴费用概不退还。",
+
+    // Footer
+    footerText1: "ABA SUTOPO — 语言通天下，汉语连五洲。东坡学院致力培养专业人才，开拓美好未来!",
+    footerText2: "版权所有 © Sutopo 外国语学院",
+    contactEmailLabel: "电子邮件",
+    contactWhatsappLabel: "Whatsapp",
+  },
+
+  en: {
+    title: "Home – ABA SUTOPO",
+    judulNavbar: "ABA SUTOPO 東坡學院",
+    menuKurikulum: "Curriculum",
+    menuKegiatan: "Activities",
+    menuProgram: "Programs",
+    menuAbout: "About Us",
+
+    // Program Internasional
+    progIntTitle: "INTERNATIONAL PROGRAM",
+    progIntDesc1: "ABA SUTOPO collaborates with several well-known universities in China through the 3+1 Program, consisting of 6 semesters at ABA SUTOPO and 2 semesters at partner Chinese universities:",
+    progIntList1: "Tianjin University, Tianjin",
+    progIntList2: "South China Normal University (SCNU), Guangzhou",
+    progIntList3: "Huaqiao University, Xiamen",
+    progIntDesc2: "This program is available for students of the Mandarin Language Study Program. Graduates will obtain a B.A (Bachelor of Arts) from one of the partner Chinese universities after completing all required administrative procedures.",
+
+    // Biaya
+    biayaTitle1: "TUITION FEES",
+    biayaTitle2: "MANDARIN LANGUAGE STUDY PROGRAM",
+    biaya1: "Registration Fee",
+    biayaRegFeeStrong: "Free",
+    biaya2: "Development Fee",
+    biayaDevFeeStrong: "Free",
+    biaya3: "Equipment Fee",
+    biaya3Note: "(including orientation, academic robe, student card, exam papers and extracurricular activities)",
+    biaya4: "Tuition Fee per year",
+    biayaNote: "(fees above do not include books, final exam fees and graduation ceremony)",
+
+    // Column headers
+    table3Years: "3-YEAR TUITION FEE TABLE",
+    colNO: "NO",
+    colBIAYA: "DESCRIPTION",
+    colCICILAN: "INSTALLMENT",
+    colWAKTU: "PAYMENT TIME",
+    colNOMINAL: "AMOUNT",
+
+    // Tahun I rows
+    t1_item1: "Equipment Fee",
+    t1_item1_cicilan: "Year I",
+    t1_item1_waktu: "upon registration",
+    t1_row2_cicilan: "I",
+    t1_row2_waktu: "upon registration",
+    t1_item2: "Tuition Fee Semester I",
+    t1_row3_cicilan: "II",
+    t1_row3_waktu: "Oct 2025",
+    t1_row4_cicilan: "III",
+    t1_row4_waktu: "Dec 2025",
+    t1_item3: "Tuition Fee Semester II",
+    t1_row5_cicilan: "I",
+    t1_row5_waktu: "Mar 2026",
+    t1_row6_cicilan: "II",
+    t1_row6_waktu: "May 2026",
+
+    // Tahun II
+    tahun2: "YEAR II FEES",
+    t2_item1: "Equipment Fee",
+    t2_item1_cicilan: "Year II",
+    t2_item1_waktu: "Aug 2026",
+    t2_item2: "Tuition Fee Semester III",
+    t2_row2_cicilan: "I",
+    t2_row2_waktu: "Aug 2026",
+    t2_row3_cicilan: "II",
+    t2_row3_waktu: "Dec 2026",
+    t2_item3: "Tuition Fee Semester IV",
+    t2_row4_cicilan: "I",
+    t2_row4_waktu: "Mar 2027",
+    t2_row5_cicilan: "II",
+    t2_row5_waktu: "May 2027",
+
+    // Tahun III
+    tahun3: "YEAR III FEES",
+    t3_item1: "Equipment Fee",
+    t3_item1_cicilan: "Year III",
+    t3_item1_waktu: "Aug 2027",
+    t3_item2: "Tuition Fee Semester V",
+    t3_row2_cicilan: "I",
+    t3_row2_waktu: "Aug 2027",
+    t3_row3_cicilan: "II",
+    t3_row3_waktu: "Dec 2027",
+    t3_item3: "Tuition Fee Semester VI",
+    t3_row4_cicilan: "I",
+    t3_row4_waktu: "Mar 2028",
+    t3_row5_cicilan: "II",
+    t3_row5_waktu: "May 2028",
+
+    // Discount table
+    potonganTitle: "DISCOUNT TABLE",
+    colDiskon: "CASH DISCOUNT",
+    colHargaAwal: "INITIAL PRICE",
+    colNominal: "DISCOUNT AMOUNT",
+    colHargaSetelah: "PRICE AFTER DISCOUNT",
+    disc_row1_period: "1 year",
+    disc_row2_period: "2 years",
+    disc_row3_period: "3 years",
+
+    totalLabel: "TOTAL",
+    catatanBiaya: "Note: All payments are non-refundable.",
+
+    // Footer
+    footerText1: "ABA SUTOPO — Bridging the world through language. We cultivate talents for a brighter future!",
+    footerText2: "Copyright © ABA Sutopo All rights reserved",
+    contactEmailLabel: "Email",
+    contactWhatsappLabel: "Whatsapp",
+  }
+};
+
+
+/* ============================================
+   FUNCTION TRANSLATE
+   ============================================ */
+function applyTranslate(lang) {
+  document.querySelectorAll("[data-translate]").forEach(el => {
+    const key = el.getAttribute("data-translate");
+    if (translations[lang] && translations[lang][key] !== undefined) {
+      el.innerHTML = translations[lang][key];
+    }
+  });
+
+  // update title if defined
+  if (translations[lang] && translations[lang].title) {
+    document.title = translations[lang].title;
+  }
+}
+
+/* ============================================
+   Hook up language buttons (flag clicks)
+   ============================================ */
+document.querySelectorAll("#langMenu img").forEach(img => {
+  img.addEventListener("click", () => {
+    const selectedLang = img.dataset.lang;
+    // change flag icon (already handled earlier), then translate
+    document.getElementById("langFlag").src = img.src;
+    applyTranslate(selectedLang);
+  });
+});
+
+/* ============================================
+   Optional: Set initial language from browser or keep Indonesian
+   ============================================ */
+(function setInitialLanguage() {
+  // default to Indonesian
+  applyTranslate('id');
+})();
+</script>
+
+<!-- FLOATING SOCIAL MEDIA ICONS -->
+<div class="fixed left-4 bottom-6 z-50 flex flex-col space-y-3">
+
+  <!-- WHATSAPP -->
+  <a href="https://api.whatsapp.com/send/?phone=6285353584250"
+     target="_blank"
+     class="bg-green-500 p-3 rounded-full shadow-lg hover:scale-110 transition">
+    <img src="icons/wa.png.png" class="w-8 h-8">
+  </a>
+
+  <!-- INSTAGRAM -->
+  <a href="https://www.instagram.com/sutopo.dongpoxueyuan/"
+     target="_blank"
+     class="bg-gradient-to-tr from-purple-500 to-pink-500 p-3 rounded-full shadow-lg hover:scale-110 transition">
+    <img src="icons/ig.png.png" class="w-8 h-8">
+  </a>
+
+  <!-- SATGAS -->
+  <a href="https://satgas-abasutopo.github.io/satgas/"
+     class="bg-blue-500 p-3 rounded-full shadow-lg hover:scale-110 transition">
+    <img src="icons/satgas.png.png" class="w-8 h-8">
+  </a>
+
+  <!-- TIKTOK -->
+  <a href="https://www.tiktok.com/@abasutopo/"
+     target="_blank"
+     class="bg-black p-3 rounded-full shadow-lg hover:scale-110 transition">
+    <img src="icons/tiktok.png.png" class="w-8 h-8">
+  </a>
+
+</div>
+
+</body>
+</html>
