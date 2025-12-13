@@ -13,7 +13,7 @@
 
     .swiper img {
       width: 100%;
-      height: 180px; /* sebelumnya 300px */
+      height: 180px; 
       object-fit: cover;
       border-radius: 15px;
 
@@ -21,8 +21,8 @@
    }
 
     .vertical-swiper {
-    height: 420px;           /* tinggi area swiper vertical */
-    overflow-y: scroll;      /* scroll vertikal */
+    height: 420px;           
+    overflow-y: scroll;      
     scroll-snap-type: y mandatory;
     border-radius: 15px;
   }
@@ -40,16 +40,90 @@
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
   }
 
-  /* optional: sembunyikan scrollbar untuk lebih rapi */
+
   .vertical-swiper::-webkit-scrollbar {
     width: 0;
     background: transparent;
   }
-</style>
+
+
+    #imageModal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      backdrop-filter: blur(8px);
+      background: rgba(0, 0, 0, 0.7);
+      justify-content: center;
+      align-items: center;
+      cursor: zoom-out;
+    }
+
+    #imageModal img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+      animation: zoom 0.3s ease;
+      pointer-events: none; 
+    }
+
+    @keyframes zoom {
+      from {
+        transform: scale(0.7);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    
+    .cursor-pointer {
+      cursor: pointer;
+    }
+
+/* Custom Arrow Buttons */
+    .custom-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: transparent !important;
+      border: none;
+      outline: none;
+      box-shadow: none;
+      font-size: 3rem;
+      color: rgba(255,255,255,0.8);
+      cursor: pointer;
+      z-index: 50;
+      padding: 0.2rem 0.4em;
+    }
+
+    .custom-arrow:hover {
+      background: rgba(255,255,255,1);
+    }
+    .custom-arrow:focus {
+      outline: none;
+      box-shadow: none;
+    }
+
+    #prev1 { left: 0.5rem; }
+    #next1 { right: 0.5rem; }
+    #prev2 { left: 0.5rem; }
+    #next2 { right: 0.5rem; }
+
+    /* Sembunyikan default Swiper arrows */
+    .swiper-button-next, .swiper-button-prev {
+      display: none;
+    }
+  </style>
 </head>
 
-
-<body>
+<body class="bg-gray-100">
 
 <!-- NAVBAR -->
 <header class="bg-red-600 text-white p-4 shadow-md relative">
@@ -57,7 +131,7 @@
 
     <!-- LOGO -->
     <div class="flex items-center space-x-3">
-      <img src="images/logo-satgas.png.png" class="w-12 h-12 rounded-full">
+      <img src="images/logo-satgas.png.png" class="w-12 h-12 rounded-full" alt="Logo ABA SUTOPO">
       <a href="index.html" class="text-xl md:text-2xl font-bold" data-translate="judulNavbar">
         ABA SUTOPO 東坡學院
       </a>
@@ -69,9 +143,9 @@
       
         <div id="langMenu"
           class="hidden absolute right-0 mt-2 bg-gray-200 border rounded-xl shadow-lg p-2 w-24 z-50 text-center">
-          <img src="flags/Indonesia-Flag.png.png" data-lang="id">
-          <img src="flags/Chinese-Flag.png.png" data-lang="cn">
-          <img src="flags/United-Kingdom-Flag.png.png" data-lang="en">
+          <img src="flags/Indonesia-Flag.png.png" data-lang="id" alt="Bahasa Indonesia">
+          <img src="flags/Chinese-Flag.png.png" data-lang="cn" alt="Bahasa Cina">
+          <img src="flags/United-Kingdom-Flag.png.png" data-lang="en" alt="Bahasa Inggris">
         </div>
       </div>
 
@@ -90,7 +164,6 @@
 
       </div>
 
-    </div>
   </div>
 </header>
 
@@ -119,7 +192,7 @@
 
   langMenu.querySelectorAll("img").forEach(img => {
     img.addEventListener("click", () => {
-      langFlag.src = img.src;
+      if(langFlag) langFlag.src = img.src;
       langMenu.classList.add("hidden");
     });
   });
@@ -143,10 +216,8 @@
 
   <!-- ============== SECTION 1 ================= -->
   <div class="space-y-4">
-    <div onclick="toggleGallery('gal1')"
-         class="cursor-pointer flex items-center gap-6 bg-red-600 rounded-xl p-8 shadow-xl text-white hover:bg-red-700 transition">
-      <img src="images/cerebrate.png.png" 
-           class="w-24 h-24 rounded-full" />
+    <div onclick="toggleGallery('gal1')" class="cursor-pointer flex items-center gap-6 bg-red-600 rounded-xl p-8 shadow-xl text-white hover:bg-red-700 transition">
+      <img src="images/cerebrate.png.png" class="w-24 h-24 rounded-full" alt="Icon Acara Pembukaan" />
       <h2 class="text-2xl font-bold">Acara Pembukaan</h2>
     </div>
 
@@ -154,32 +225,26 @@
     <div id="gal1" class="hidden relative">
 
       <!-- BUTTON LEFT -->
-      <button id="prev1"
-        class="absolute left-0 top-1/2 -translate-y-1/2 bg-white p-3 rounded-full shadow-xl z-10">
-        ◀
-      </button>
+      <button id="prev1" class="custom-arrow">&lsaquo;</button>
 
       <!-- BUTTON RIGHT -->
-      <button id="next1"
-        class="absolute right-0 top-1/2 -translate-y-1/2 bg-white p-3 rounded-full shadow-xl z-10">
-        ▶
-      </button>
+      <button id="next1" class="custom-arrow">&rsaquo;</button>
 
       <!-- SWIPER -->
       <div class="swiper swiper1 px-12 py-6">
         <div class="swiper-wrapper">
 
-          <div class="swiper-slide"><img src="images/Acara-aba-sutopo.png" class="rounded-xl shadow-xl"></div>
-          <div class="swiper-slide"><img src="images/peresmian-Akademi-Bahasa-Asing-Sutopo.png" class="rounded-xl shadow-xl"></div>
-          <div class="swiper-slide"><img src="images/tamu-undangan-yang-hadir-peresmian.png" class="rounded-xl shadow-xl"></div>
-          <div class="swiper-slide"><img src="images/menandatangani-prasasti-peresmian-aba-sutopo.png" class="rounded-xl shadow-xl"></div>
-          <div class="swiper-slide"><img src="images/Penandatanganan-MoU-wakil-panglima-kopassus.png" class="rounded-xl shadow-xl"></div>
-          <div class="swiper-slide"><img src="images/Penandatanganan-MoU-Universitas-Tianjin.png" class="rounded-xl shadow-xl"></div>
-          <div class="swiper-slide"><img src="images/Penandatanganan-MoU-De-Xin-Steel-Indonesia.png" class="rounded-xl shadow-xl"></div>
-          <div class="swiper-slide"><img src="images/usai-prosesi-peresmian.png" class="rounded-xl shadow-xl"></div>
-          <div class="swiper-slide"><img src="images/Kopassus-berfoto-bersama-pengajar.png" class="rounded-xl shadow-xl"></div>
-          <div class="swiper-slide"><img src="images/Pemberian-cenderamata-berupa-kaligrafi.png" class="rounded-xl shadow-xl"></div>
-          <div class="swiper-slide"><img src="images/Pemberian-cenderamata-berupa-lukisan.png" class="rounded-xl shadow-xl"></div>
+          <div class="swiper-slide"><img src="images/Acara-aba-sutopo.png" class="rounded-xl shadow-xl cursor-pointer" onclick="openModal(this.src)" alt="Acara ABA Sutopo"></div>
+          <div class="swiper-slide"><img src="images/peresmian-Akademi-Bahasa-Asing-Sutopo.png" class="rounded-xl shadow-xl cursor-pointer" onclick="openModal(this.src)" alt="Peresmian Akademi Bahasa Asing Sutopo"></div>
+          <div class="swiper-slide"><img src="images/tamu-undangan-yang-hadir-peresmian.png" class="rounded-xl shadow-xl cursor-pointer" onclick="openModal(this.src)" alt="Tamu Undangan Peresmian"></div>
+          <div class="swiper-slide"><img src="images/menandatangani-prasasti-peresmian-aba-sutopo.png" class="rounded-xl shadow-xl cursor-pointer" onclick="openModal(this.src)" alt="Penandatanganan Prasasti Peresmian ABA Sutopo"></div>
+          <div class="swiper-slide"><img src="images/Penandatanganan-MoU-wakil-panglima-kopassus.png" class="rounded-xl shadow-xl cursor-pointer" onclick="openModal(this.src)" alt="Penandatanganan MoU Wakil Panglima Kopassus"></div>
+          <div class="swiper-slide"><img src="images/Penandatanganan-MoU-Universitas-Tianjin.png" class="rounded-xl shadow-xl cursor-pointer" onclick="openModal(this.src)" alt="Penandatanganan MoU Universitas Tianjin"></div>
+          <div class="swiper-slide"><img src="images/Penandatanganan-MoU-De-Xin-Steel-Indonesia.png" class="rounded-xl shadow-xl cursor-pointer" onclick="openModal(this.src)" alt="Penandatanganan MoU De Xin Steel Indonesia"></div>
+          <div class="swiper-slide"><img src="images/usai-prosesi-peresmian.png" class="rounded-xl shadow-xl cursor-pointer" onclick="openModal(this.src)" alt="Usai Prosesi Peresmian"></div>
+          <div class="swiper-slide"><img src="images/Kopassus-berfoto-bersama-pengajar.png" class="rounded-xl shadow-xl cursor-pointer" onclick="openModal(this.src)" alt="Kopassus Berfoto Bersama Pengajar"></div>
+          <div class="swiper-slide"><img src="images/Pemberian-cenderamata-berupa-kaligrafi.png" class="rounded-xl shadow-xl cursor-pointer" onclick="openModal(this.src)" alt="Pemberian Cenderamata Kaligrafi"></div>
+          <div class="swiper-slide"><img src="images/Pemberian-cenderamata-berupa-lukisan.png" class="rounded-xl shadow-xlcursor-pointer" onclick="openModal(this.src)" alt="Pemberian Cenderamata Lukisan"></div>
 
         </div>
       </div>
@@ -189,31 +254,27 @@
 
   <!-- ============== SECTION 2 ================= -->
   <div class="space-y-4">
-    <div onclick="toggleGallery('gal2')"
-         class="cursor-pointer flex items-center gap-6 bg-red-600 rounded-xl p-8 shadow-xl text-white hover:bg-red-700 transition">
-      <img src="images/icon-beritaok.png"
-           class="w-24 h-24 rounded-full" />
+    <div onclick="toggleGallery('gal2')" class="cursor-pointer flex items-center gap-6 bg-red-600 rounded-xl p-8 shadow-xl text-white hover:bg-red-700 transition">
+      <img src="images/icon-beritaok.png" class="w-24 h-24 rounded-full" alt="Icon Kegiatan Kampus" />
       <h2 class="text-2xl font-bold">Kegiatan Kampus</h2>
     </div>
 
     <div id="gal2" class="hidden relative">
 
-      <button id="prev2"
-        class="absolute left-0 top-1/2 -translate-y-1/2 bg-white p-3 rounded-full shadow-xl z-10">◀</button>
+      <button id="prev2" class="custom-arrow">&lsaquo;</button>
 
-      <button id="next2"
-        class="absolute right-0 top-1/2 -translate-y-1/2 bg-white p-3 rounded-full shadow-xl z-10">▶</button>
+      <button id="next2" class="custom-arrow">&rsaquo;</button>
 
       <div class="swiper swiper2 px-12 py-6">
         <div class="swiper-wrapper">
 
-          <div class="swiper-slide"><img src="images/Tes-masuk-akademi-bahasa-asing-sutopo.png.jpeg" class="rounded-xl shadow-xl"></div>
-          <div class="swiper-slide"><img src="images/Kegiatan-Kelas-Pagi.png.png" class="rounded-xl shadow-xl"></div>
-          <div class="swiper-slide"><img src="images/Party-class-kelas-pagi.png.jpeg" class="rounded-xl shadow-xl"></div>
-          <div class="swiper-slide"><img src="images/Party-class-kelas-malam.png.jpeg" class="rounded-xl shadow-xl"></div>
-          <div class="swiper-slide"><img src="images/activity-night-class.png.jpeg" class="rounded-xl shadow-xl"></div>
-          <div class="swiper-slide"><img src="images/ppkn-night-class.png.jpeg" class="rounded-xl shadow-xl"></div>
-          <div class="swiper-slide"><img src="images/Kegiatan-Kelas-Sore.png.png" class="rounded-xl shadow-xl"></div>
+          <div class="swiper-slide"><img src="images/Tes-masuk-akademi-bahasa-asing-sutopo.png.jpeg" class="rounded-xl shadow-xl cursor-pointer" onclick="openModal(this.src)" alt="Tes Masuk Akademi Bahasa Asing Sutopo"></div>
+          <div class="swiper-slide"><img src="images/Kegiatan-Kelas-Pagi.png.png" class="rounded-xl shadow-xl cursor-pointer" onclick="openModal(this.src)" alt="Kegiatan Kelas Pagi"></div>
+          <div class="swiper-slide"><img src="images/Party-class-kelas-pagi.png.jpeg" class="rounded-xl shadow-xl cursor-pointer" onclick="openModal(this.src)" alt="Party Class Kelas Pagi"></div>
+          <div class="swiper-slide"><img src="images/Party-class-kelas-malam.png.jpeg" class="rounded-xl shadow-xl cursor-pointer" onclick="openModal(this.src)" alt="Party Class Kelas Malam"></div>
+          <div class="swiper-slide"><img src="images/activity-night-class.png.jpeg" class="rounded-xl shadow-xl cursor-pointer" onclick="openModal(this.src)" alt="Activity Night Class"></div>
+          <div class="swiper-slide"><img src="images/ppkn-night-class.png.jpeg" class="rounded-xl shadow-xl cursor-pointer" onclick="openModal(this.src)" alt="PPKN Night Class"></div>
+          <div class="swiper-slide"><img src="images/Kegiatan-Kelas-Sore.png.png" class="rounded-xl shadow-xl cursor-pointer" onclick="openModal(this.src)" alt="Kegiatan Kelas Sore"></div>
 
         </div>
       </div>
@@ -221,48 +282,55 @@
   </div>
 
   <!-- ============== SECTION 3 ================= -->
-  <div class="space-y-4">
-    <div onclick="toggleGallery('gal3')"
-         class="cursor-pointer flex items-center gap-6 bg-red-600 rounded-xl p-8 shadow-xl text-white hover:bg-red-700 transition">
-      <img src="images/video-activis.png.png" class="w-24 h-24 rounded-full" />
-      <h2 class="text-2xl font-bold">Kegiatan Mahasiswa</h2>
-    </div>
-
-    <!-- Slide 1: Video Portrait -->
-      <div class="vertical-slide" style="scroll-snap-align: start; margin-bottom: 1.25rem;">
-  <video 
-    controls 
-    style="width: 210px; height: 420px; object-fit: cover; border-radius: 1rem; box-shadow: 0 10px 25px rgba(0,0,0,0.25);" 
-    preload="metadata"
-  >
-    <source src="videos/Morning-class-aktivitas.mp4" type="video/mp4" />
-  </video>
+<div onclick="toggleGallery('gal3')" class="cursor-pointer flex items-center gap-6 bg-red-600 rounded-xl p-8 shadow-xl text-white hover:bg-red-700 transition">
+  <img src="images/video-activis.png.png" class="w-24 h-24 rounded-full" alt="Icon Kegiatan Mahasiswa" />
+  <h2 class="text-2xl font-bold">Kegiatan Mahasiswa</h2>
 </div>
 
-<!-- Slide 2: Video Portrait -->
-      <div class="vertical-slide" style="scroll-snap-align: start; margin-bottom: 1.25rem;">
-  <video 
-    controls 
-    style="width: 210px; height: 420px; object-fit: cover; border-radius: 1rem; box-shadow: 0 10px 25px rgba(0,0,0,0.25);" 
-    preload="metadata"
-  >
-    <source src="videos/Hentikan-perundungan.mp4" type="video/mp4" />
-  </video>
-</div>
+<!-- GALERI (DIBUAT TERSEMBUNYI) -->
+<div id="gal3" class="hidden flex gap-4 overflow-x-auto py-2">
 
-<!-- Slide 3: Video Portrait -->
-      <div class="vertical-slide" style="scroll-snap-align: start; margin-bottom: 1.25rem;">
-  <video 
-    controls 
-    style="width: 210px; height: 420px; object-fit: cover; border-radius: 1rem; box-shadow: 0 10px 25px rgba(0,0,0,0.25);" 
-    preload="metadata"
-  >
-    <source src="videos/stop-perundungan.mp4" type="video/mp4" />
-  </video>
+  <!-- Slide 1 -->
+  <div class="vertical-slide" style="flex: 0 0 auto;">
+    <video 
+      controls 
+      style="width: 230px; height: 420px; object-fit: cover; border-radius: 1rem; box-shadow: 0 10px 25px rgba(0,0,0,0.50);" 
+      preload="metadata"
+      >
+      <source src="videos/Morning-class-aktivitas.mp4" type="video/mp4" />
+    </video>
+  </div>
+
+  <!-- Slide 2 -->
+  <div class="vertical-slide" style="flex: 0 0 auto;">
+    <video 
+      controls 
+      style="width: 230px; height: 420px; object-fit: cover; border-radius: 1rem; box-shadow: 0 10px 25px rgba(0,0,0,0.50);" 
+      preload="metadata"
+      >
+      <source src="videos/Hentikan-perundungan.mp4" type="video/mp4" />
+    </video>
+  </div>
+
+  <!-- Slide 3 -->
+  <div class="vertical-slide" style="flex: 0 0 auto;">
+    <video 
+      controls 
+      style="width: 230px; height: 420px; object-fit: cover; border-radius: 1rem; box-shadow: 0 10px 25px rgba(0,0,0,0.50);" 
+      preload="metadata"
+      >
+      <source src="videos/stop-perundungan.mp4" type="video/mp4" />
+    </video>
+  </div>
+
 </div>
 
 </section>
 
+<!-- MODAL GAMBAR -->
+<div id="imageModal" onclick="closeModal()">
+  <img id="modalImg" src="" alt="Gambar besar">
+</div>
 
 <!-- SWIPER JS -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -271,20 +339,32 @@
 function toggleGallery(id) {
   const gal = document.getElementById(id);
 
-  document.querySelectorAll("[id^='gal']").forEach(g => {
-    if (g !== gal) g.classList.add("hidden");
-  });
-
+  document.querySelectorAll("[id^='gal']").forEach(g => { if (g !== gal) g.classList.add("hidden"); });
   gal.classList.toggle("hidden");
 }
 
-/* ========== SWIPER CONFIG UNTUK SEMUA GALERI ========== */
 
 function createSwiper(className, prevBtn, nextBtn) {
-  const swiper = new Swiper(className, {
+  const swiper1 = new Swiper('.swiper1', {
     spaceBetween: 20,
     loop: true,
-    speed: 700,
+    navigation: {
+      nextEl: '#next1',
+      prevEl: '#prev1',
+    },
+    breakpoints: {
+      0: { slidesPerView: 1 }, 
+      640: { slidesPerView: 2 }, 
+      1024: { slidesPerView: 3 }
+    }
+  });
+  const swiper2 = new Swiper('.swiper2', {
+    spaceBetween: 20,
+    loop: true,
+    navigation: {
+      nextEl: '#next2',
+      prevEl: '#prev2',
+    },
     breakpoints: {
       0: { slidesPerView: 1 }, 
       640: { slidesPerView: 2 }, 
@@ -298,6 +378,22 @@ function createSwiper(className, prevBtn, nextBtn) {
 
 createSwiper(".swiper1", "prev1", "next1");
 createSwiper(".swiper2", "prev2", "next2");
+
+// ==== MODAL GAMBAR ====
+
+  // Buka modal dengan gambar yang diklik
+  function openModal(src) {
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImg");
+    modal.style.display = "flex";
+    modalImg.src = src;
+  }
+
+  // Tutup modal jika klik di background modal
+  function closeModal() {
+    const modal = document.getElementById("imageModal");
+    modal.style.display = "none";
+  }
 </script>
 
 
@@ -345,10 +441,7 @@ createSwiper(".swiper2", "prev2", "next2");
      class="bg-black p-3 rounded-full shadow-lg hover:scale-110 transition">
     <img src="icons/tiktok.png.png" class="w-8 h-8">
   </a>
-
 </div>
 
 </body>
 </html>
-
-
