@@ -10,20 +10,24 @@
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
-    #langMenu img {
-      width: 45px;
-      margin: 12px auto;
-      cursor: pointer;
-      display: block;
-      border-radius: 4px;
-    }
-  </style>
+  html, body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+</style>
 </head>
 
 <body class="w-full overflow-x-hidden">
 
 <!-- NAVBAR -->
-<header class="w-screen bg-red-600 text-white py-3 shadow-md relative">
+<header class="bg-red-600 text-white px-4 py-3 shadow-md relative w-full">
   <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
 
     <!-- LOGO -->
@@ -46,7 +50,7 @@
         </button>
 
         <div id="langMenu"
-          class="hidden absolute right-0 mt-2 bg-gray-200 border rounded-xl shadow-lg p-2 w-24 z-50 text-center">
+          class="hidden fixed right-0 mt-2 bg-gray-200 border rounded-xl shadow-lg p-2 w-24 z-50 text-center">
           <img src="flags/Indonesia-Flag.png.png" data-lang="id">
           <img src="flags/Chinese-Flag.png.png" data-lang="cn">
           <img src="flags/United-Kingdom-Flag.png.png" data-lang="en">
@@ -60,7 +64,7 @@
 
       <!-- MENU DROPDOWN -->
       <div id="menuDropdown"
-        class="hidden absolute right-4 top-16 bg-white text-black rounded-xl shadow-lg w-40 p-4 space-y-3 z-50">
+        class="hidden fixed right-4 top-16 bg-white text-black rounded-xl shadow-lg w-40 p-4 space-y-3 z-50">
 
         <a href="kurikulum.html" class="block hover:text-red-600" data-translate="menuKurikulum">Kurikulum</a>
         <a href="kegiatan.html" class="block hover:text-red-600" data-translate="menuKegiatan">Kegiatan</a>
@@ -137,7 +141,7 @@ style="background-image: url('images/Satgas-ABAS.png.png');">
 </section>
 
 <!-- GRID BUTTON 4 ITEM -->
-<section class="w-full py-12 bg-gray-100">
+<section class="w-screen py-12 bg-gray-100">
   <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-7xl mx-auto px-4">
 
     <!-- KURIKULUM -->
@@ -176,8 +180,8 @@ style="background-image: url('images/Satgas-ABAS.png.png');">
 </section>
 
 <!-- FOOTER -->
-<footer class="w-full bg-red-600 text-white p-6">
-  <div class="w-full max-w-7xl mx-auto text-center px-4">
+<footer class="w-screen bg-red-600 text-white p-6">
+  <div class="w-screen max-w-7xl mx-auto text-center px-4">
     <p data-translate="footerText1">
       ABA SUTOPO — 语言通天下，汉语连五洲。东坡学院致力培养专业人才，开拓美好未来!
     </p>
