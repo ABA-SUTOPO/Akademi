@@ -4,12 +4,26 @@
   <meta charset="UTF-8">
   <title data-translate="title">Beranda – ABA SUTOPO</title>
   <link rel="icon" type="image/png" href="favicon.png.png">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- SWIPER CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
   <style>
+  html, body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
 
     .swiper img {
       width: 100%;
@@ -123,11 +137,11 @@
   </style>
 </head>
 
-<body class="bg-gray-100">
+<body class="w-full overflow-x-hidden">
 
 <!-- NAVBAR -->
-<header class="bg-red-600 text-white p-4 shadow-md relative">
-  <div class="container mx-auto flex justify-between items-center">
+<header class="bg-red-600 text-white px-4 py-3 shadow-md relative w-full">
+  <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
 
     <!-- LOGO -->
     <div class="flex items-center space-x-3">
@@ -155,7 +169,7 @@
       </button>
 
       <div id="menuDropdown"
-        class="hidden absolute right-4 top-16 bg-white text-black rounded-xl shadow-lg w-40 p-4 space-y-3 z-50">
+        class="hidden fixed right-4 top-16 bg-white text-black rounded-xl shadow-lg w-40 p-4 space-y-3 z-50">
 
         <a href="kurikulum.html" class="block hover:text-red-600" data-translate="menuKurikulum">Kurikulum</a>
         <a href="kegiatan.html" class="block hover:text-red-600" data-translate="menuKegiatan">Kegiatan</a>
@@ -398,8 +412,8 @@ createSwiper(".swiper2", "prev2", "next2");
 
 
 <!-- FOOTER -->
-<footer class="bg-red-600 text-white p-6">
-  <div class="container mx-auto text-center px-4">
+<footer class="bg-red-600 text-white p-4 md:p-6 text-sm md:text-base">
+  <div class="w-screen max-w-7xl mx-auto text-center px-4">
     <p data-translate="footerText1">
       ABA SUTOPO — 语言通天下，汉语连五洲。东坡学院致力培养专业人才，开拓美好未来!
     </p>
@@ -417,7 +431,7 @@ createSwiper(".swiper2", "prev2", "next2");
 </footer>
 
 <!-- FLOATING ICONS -->
-<div class="fixed left-4 bottom-6 z-50 flex flex-col space-y-3">
+<div class="fixed right-4 bottom-6 z-50 flex flex-col space-y-3">
 
   <a href="https://satgas-abasutopo.github.io/satgas/"
      class="bg-blue-500 p-3 rounded-full shadow-lg hover:scale-110 transition">
