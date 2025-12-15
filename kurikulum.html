@@ -28,7 +28,7 @@
 <body class="w-full overflow-x-hidden">
 
 <!-- NAVBAR -->
-<header class="bg-red-600 text-white px-4 py-3 shadow-md relative w-full">
+<header class="fixed top-0 left-0 w-full z-50 bg-red-600 text-white px-4 py-3 shadow-md">
   <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
 
     <!-- LOGO -->
@@ -101,6 +101,8 @@
   langBtnTop.addEventListener("click", (e) => { e.stopPropagation(); langMenuTop.classList.toggle("hidden"); });
   document.addEventListener("click", () => { langMenuTop.classList.add("hidden"); });
 </script>
+
+<main class="pt-20">
 
 <!-- SECTION KURIKULUM -->
 <section class="container mx-auto px-6 py-12 leading-relaxed">
@@ -594,7 +596,10 @@ document.getElementById("menuDropdown").addEventListener("click", (e) => e.stopP
 </script>
 
 <!-- FLOATING SOCIAL MEDIA ICONS -->
-<div class="fixed right-4 bottom-6 z-50 flex flex-col space-y-3">
+<div id="socialFloat"
+     class="fixed left-4 bottom-6 z-50 flex flex-col space-y-3
+            opacity-0 translate-y-10 pointer-events-none
+            transition-all duration-500 ease-out">
 
   <!-- SATGAS -->
   <a href="https://satgas-abasutopo.github.io/satgas/"
@@ -625,6 +630,83 @@ document.getElementById("menuDropdown").addEventListener("click", (e) => e.stopP
 
 </div>
 
+<!-- SCRIPT ANIMASI SCROLL -->
+<script>
+  const socialFloat = document.getElementById("socialFloat");
+  let lastScrollTop = 0;
+
+  window.addEventListener("scroll", () => {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scrollTop > 120) {
+      // SCROLL KE BAWAH → MUNCUL
+      socialFloat.classList.remove("opacity-0", "translate-y-10", "pointer-events-none");
+      socialFloat.classList.add("opacity-100", "translate-y-0");
+    } else {
+      // SCROLL KE ATAS / POSISI ATAS → HILANG
+      socialFloat.classList.add("opacity-0", "translate-y-10", "pointer-events-none");
+      socialFloat.classList.remove("opacity-100", "translate-y-0");
+    }
+
+    lastScrollTop = scrollTop;
+  });
+</script>
+
+<!-- BACK TO TOP BUTTON -->
+<button id="backToTop"
+  class="fixed bottom-6 right-4 z-50
+         bg-red-800 text-white
+         p-3 rounded-full shadow-lg
+         opacity-0 translate-y-10 pointer-events-none
+         transition-all duration-500 ease-out
+         hover:bg-red-900 hover:scale-110">
+
+  <!-- ICON PANAH -->
+  <svg xmlns="http://www.w3.org/2000/svg"
+       class="w-6 h-6"
+       fill="none"
+       viewBox="0 0 24 24"
+       stroke="currentColor"
+       stroke-width="2">
+    <path stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M5 15l7-7 7 7" />
+  </svg>
+</button>
+
+<!-- SCRIPT -->
+<script>
+  const backToTop = document.getElementById("backToTop");
+
+  // MUNCUL / HILANG SAAT SCROLL
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 150) {
+      backToTop.classList.remove(
+        "opacity-0",
+        "translate-y-10",
+        "pointer-events-none"
+      );
+      backToTop.classList.add("opacity-100", "translate-y-0");
+    } else {
+      backToTop.classList.add(
+        "opacity-0",
+        "translate-y-10",
+        "pointer-events-none"
+      );
+      backToTop.classList.remove("opacity-100", "translate-y-0");
+    }
+  });
+
+  // AUTO SCROLL KE ATAS
+  backToTop.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+</script>
+
+</main>
+
 </body>
 </html>
-
