@@ -329,11 +329,9 @@ body.lock-scroll {
 </div>
 
 <!-- GALERI (DIBUAT TERSEMBUNYI) -->
-<div 
-  id="gal3" 
-  class="hidden flex gap-4 overflow-x-auto py-6 px-2 items-start"
-  style="overflow-y: visible;"
->
+<div id="gal3"
+     class="hidden flex gap-6 overflow-x-auto py-6 px-3"
+     style="scroll-snap-type: x mandatory; overflow-y:visible;">
 
   <!-- Slide 1 -->
   <div class="video-wrapper vertical-slide flex-shrink-0 pb-12">
@@ -354,6 +352,7 @@ body.lock-scroll {
     </video>
   </div>
 
+  <!-- Slide 2 -->
   <div class="video-wrapper vertical-slide flex-shrink-0 pb-12">
   <video
     controls
@@ -407,6 +406,25 @@ body.lock-scroll {
     "
   >
     <source src="videos/Christmas-present-aba-sutopo.mp4" type="video/mp4" />
+  </video>
+</div>
+
+<!-- Slide 5 -->
+  <div class="video-wrapper vertical-slide flex-shrink-0 pb-12">
+  <video
+    controls
+    preload="metadata"
+    ondblclick="toggleVideoFullscreen(this); return false;"
+    style="
+      width:230px;
+      height:420px;
+      display:block;
+      object-fit:cover;
+      border-radius:1rem;
+      box-shadow:0 10px 25px rgba(0,0,0,0.50);
+    "
+  >
+    <source src="videos/Mari-budayakan-3S-salam-sapa-senyum.mp4" type="video/mp4" />
   </video>
 </div>
 
